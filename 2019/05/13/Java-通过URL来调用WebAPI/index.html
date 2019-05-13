@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="API什么是APIAPI（Application programming interface）是一些预先定义的函数，无需理解内容细节，只需要根据协议调用即可。 个人理解本文主要想描述的WebApi是指一些通过Http协议调用的第三方提供的服务，这种Api在给出的时候一般都是一种URL的形式，调用时直接用过Http协议，对URL上加上自己想要加的参数之后接收返回值即可。 URL参考    邻家大表哥">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 通过URL来调用WebAPI">
+<meta property="og:url" content="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/index.html">
+<meta property="og:site_name" content="Yatogami&#39;s Blog">
+<meta property="og:description" content="API什么是APIAPI（Application programming interface）是一些预先定义的函数，无需理解内容细节，只需要根据协议调用即可。 个人理解本文主要想描述的WebApi是指一些通过Http协议调用的第三方提供的服务，这种Api在给出的时候一般都是一种URL的形式，调用时直接用过Http协议，对URL上加上自己想要加的参数之后接收返回值即可。 URL参考    邻家大表哥">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/BaiduMapLocationDecode.png">
+<meta property="og:updated_time" content="2019-05-13T01:34:25.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 通过URL来调用WebAPI">
+<meta name="twitter:description" content="API什么是APIAPI（Application programming interface）是一些预先定义的函数，无需理解内容细节，只需要根据协议调用即可。 个人理解本文主要想描述的WebApi是指一些通过Http协议调用的第三方提供的服务，这种Api在给出的时候一般都是一种URL的形式，调用时直接用过Http协议，对URL上加上自己想要加的参数之后接收返回值即可。 URL参考    邻家大表哥">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/BaiduMapLocationDecode.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/">
+
+
+
+
+
+  <title>Java 通过URL来调用WebAPI | Yatogami's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yatogami's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 通过URL来调用WebAPI</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T07:27:14+08:00">
+                2019-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="什么是API"><a href="#什么是API" class="headerlink" title="什么是API"></a>什么是API</h2><p>API（Application programming interface）是一些预先定义的函数，无需理解内容细节，只需要根据协议调用即可。</p>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p>本文主要想描述的WebApi是指一些通过Http协议调用的第三方提供的服务，这种Api在给出的时候一般都是一种URL的形式，调用时直接用过Http协议，对URL上加上自己想要加的参数之后接收返回值即可。</p>
+<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><p>参考    <a href="https://blog.csdn.net/irony0egoist/article/details/81019440" title="邻家大表哥的CSDN博客" target="_blank" rel="noopener">邻家大表哥的CSDN博客</a></p>
+<h2 id="URL的各个组成部分"><a href="#URL的各个组成部分" class="headerlink" title="URL的各个组成部分"></a>URL的各个组成部分</h2><p>一个完整的URL<br>    <code>http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#r_70732423</code><br>其中应包括：</p>
+<h3 id="协议部分"><a href="#协议部分" class="headerlink" title="协议部分"></a>协议部分</h3><p>如本例中的http:，这代表了这个URL的http协议的，常见的还有https和ftp，后面的//是分隔符</p>
+<h3 id="域名部分"><a href="#域名部分" class="headerlink" title="域名部分"></a>域名部分</h3><p>本例中的”<a href="http://www.aspxfans.com&quot;，一个IP也可以当做域名使用，由自己的IP映射到域名是需要自己购买域名的。" target="_blank" rel="noopener">www.aspxfans.com&quot;，一个IP也可以当做域名使用，由自己的IP映射到域名是需要自己购买域名的。</a></p>
+<h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>域名后面的 “:8080” 是端口号，如果没有给出端口号说明是默认的http端口号，为80，大型网站一般都没有端口号。</p>
+<h3 id="虚拟目录部分"><a href="#虚拟目录部分" class="headerlink" title="虚拟目录部分"></a>虚拟目录部分</h3><p>8080: 后面的 /news/ 是虚拟目录部分，表示文件在服务器上的位置，虚拟目录并不是必要的。</p>
+<h3 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h3><p>对应本例中的index.asp，表示浏览的具体是哪个文件，文件名部分是可以省略的，省略之后则会使用默认的文件，一般是index.*。</p>
+<h3 id="参数部分"><a href="#参数部分" class="headerlink" title="参数部分"></a>参数部分</h3><p>从文件名后的”?”开始对应的就是URL的参数部分，URL的参数是键值对的形式，即Key=value，中间用&amp;分开多个参数。</p>
+<h3 id="锚部分"><a href="#锚部分" class="headerlink" title="锚部分"></a>锚部分</h3><p>最后的#r_70732423，不是一个URL必须的部分，通常表示在一个界面的浏览位置。</p>
+<h1 id="Java实例"><a href="#Java实例" class="headerlink" title="Java实例"></a>Java实例</h1><h2 id="百度地图给出的经纬度转实际地址API"><a href="#百度地图给出的经纬度转实际地址API" class="headerlink" title="百度地图给出的经纬度转实际地址API"></a>百度地图给出的经纬度转实际地址API</h2><h3 id="服务文档"><a href="#服务文档" class="headerlink" title="服务文档"></a>服务文档</h3><p>在调用一个第三方平台的Api时，一定要仔细浏览他所给出的服务文档，这是我们接触Api调用方式最基本的途径。<br><img src="/2019/05/13/Java-通过URL来调用WebAPI/BaiduMapLocationDecode.png" alt="APi文档" title="文档"><br>在文档里面我们可以看到WebApi对应的Http链接和参数说明，下面直接利用Java的URL类调用。</p>
+<pre><code>public void transform(final String[] positions){
+//        final String[] position ={&quot;39.26&quot;,&quot;116.2317&quot;};
+        new Thread(){
+            @Override
+            public void run(){
+                try{
+                    ObjectBox oBox = ObjectBox.getInstance();
+                    Handler mHandler = oBox.getmHandler();
+                    String uri = &quot;http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&amp;location=&quot;+positions[0]+&quot;,&quot;+positions[1]+&quot;output=json&amp;pois=1&amp;latest_admin=1&amp;ak=&quot;+AK;
+                    URL url = new URL(uri);
+                    byte[] recBuf = new byte[1024];
+                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                    if (urlConnection.getResponseCode() == 200){
+                        InputStream is = urlConnection.getInputStream();
+                        int length = is.read(recBuf);
+                        String res = new String(recBuf,0,length);
+                    } else Log.w(&quot;Transform&quot;, &quot;status code&quot;+urlConnection.getResponseCode());
+                }catch (Exception E){E.printStackTrace();}
+            }
+        }.start();
+    }
+</code></pre><p>利用String的字符串拼接，将自己的参数加到Url中，之后利用java的<strong>Url</strong>类和<strong>HttpURLConnection</strong>类创建链接，之后获取利用urlConnetcion的<strong>getInputStream方法</strong>进行读取便可得到调用结果,返回结果可能是Xml也可能是Json，根据返回类型进行处理即可得到自己的数据。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/11/需要填的坑/" rel="next" title="需要填的坑">
+                <i class="fa fa-chevron-left"></i> 需要填的坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">闫奎滈</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">1.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是API"><span class="nav-number">1.1.</span> <span class="nav-text">什么是API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#个人理解"><span class="nav-number">1.1.1.</span> <span class="nav-text">个人理解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL"><span class="nav-number">2.</span> <span class="nav-text">URL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL的各个组成部分"><span class="nav-number">2.1.</span> <span class="nav-text">URL的各个组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协议部分"><span class="nav-number">2.1.1.</span> <span class="nav-text">协议部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名部分"><span class="nav-number">2.1.2.</span> <span class="nav-text">域名部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口号"><span class="nav-number">2.1.3.</span> <span class="nav-text">端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟目录部分"><span class="nav-number">2.1.4.</span> <span class="nav-text">虚拟目录部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件名"><span class="nav-number">2.1.5.</span> <span class="nav-text">文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数部分"><span class="nav-number">2.1.6.</span> <span class="nav-text">参数部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锚部分"><span class="nav-number">2.1.7.</span> <span class="nav-text">锚部分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java实例"><span class="nav-number">3.</span> <span class="nav-text">Java实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#百度地图给出的经纬度转实际地址API"><span class="nav-number">3.1.</span> <span class="nav-text">百度地图给出的经纬度转实际地址API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务文档"><span class="nav-number">3.1.1.</span> <span class="nav-text">服务文档</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">闫奎滈</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
