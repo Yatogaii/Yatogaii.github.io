@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C/C++,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,14 @@
 
 
 
-<meta name="description" content="正常的地址传递众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。 #include &amp;lt;iostream&amp;gt; using namespace std; void add(int *p); int main(){     int p;     add(&amp;amp;p);     cout">
-<meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C&#x2F;C++中指针在函数中传递的问题">
-<meta property="og:url" content="http://yoursite.com/2019/05/24/C-C-中指针在函数中传递的问题/index.html">
+<meta property="og:title" content="LeetCode-234">
+<meta property="og:url" content="http://yoursite.com/2019/05/25/LeetCode-234/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
-<meta property="og:description" content="正常的地址传递众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。 #include &amp;lt;iostream&amp;gt; using namespace std; void add(int *p); int main(){     int p;     add(&amp;amp;p);     cout">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-23T23:20:15.519Z">
+<meta property="og:updated_time" content="2019-05-25T10:37:22.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C&#x2F;C++中指针在函数中传递的问题">
-<meta name="twitter:description" content="正常的地址传递众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。 #include &amp;lt;iostream&amp;gt; using namespace std; void add(int *p); int main(){     int p;     add(&amp;amp;p);     cout">
+<meta name="twitter:title" content="LeetCode-234">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/24/C-C-中指针在函数中传递的问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/25/LeetCode-234/">
 
 
 
 
 
-  <title>C/C++中指针在函数中传递的问题 | Yatogami's Blog</title>
+  <title>LeetCode-234 | Yatogami's Blog</title>
   
 
 
@@ -263,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/C-C-中指针在函数中传递的问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-234/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="闫奎滈">
@@ -280,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C/C++中指针在函数中传递的问题</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode-234</h1>
         
 
         <div class="post-meta">
@@ -292,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T07:02:21+08:00">
-                2019-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:22+08:00">
+                2019-05-25
               </time>
             
 
@@ -330,39 +326,7 @@
       
 
       
-        <h2 id="正常的地址传递"><a href="#正常的地址传递" class="headerlink" title="正常的地址传递"></a>正常的地址传递</h2><p>众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-void add(int *p);
-int main(){
-    int p;
-    add(&amp;p);
-    cout &lt;&lt; p;
-    return 0;
-}
-void add(int *p){
-    int in;
-    cin &gt;&gt; in;
-    *p = in;
-}
-输出结果为8.
-</code></pre><h2 id="指针的值传递"><a href="#指针的值传递" class="headerlink" title="指针的值传递"></a>指针的值传递</h2><p>如果上方的程序改成这个样子，程序会没有输出（因为空指针）。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-void add(int *p);
-int main(){
-    int *p;
-    add(p);
-    cout &lt;&lt; *p;
-    return 0;
-}
-void add(int *p){
-    int in;
-    cin &gt;&gt; in;
-    *p = in;
-}
-</code></pre><p>因为这个样子进行传递的话就相当于把指针进行了参数传递！！！<br>传递的不是指针的地址，而是指针的值，这就相当于是在函数之间进行值传递了，main函数里当然看不到add函数里给P指向的值。</p>
-
+        
       
     </div>
     
@@ -377,12 +341,6 @@ void add(int *p){
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C-C/" rel="tag"># C/C++</a>
-          
-        </div>
-      
 
       
       
@@ -392,8 +350,8 @@ void add(int *p){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/13/Java-通过URL来调用WebAPI/" rel="next" title="Java 通过URL来调用WebAPI">
-                <i class="fa fa-chevron-left"></i> Java 通过URL来调用WebAPI
+              <a href="/2019/05/25/LeetCode-206/" rel="next" title="LeetCode-206">
+                <i class="fa fa-chevron-left"></i> LeetCode-206
               </a>
             
           </div>
@@ -401,10 +359,6 @@ void add(int *p){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/25/LeetCode-206/" rel="prev" title="LeetCode-206">
-                LeetCode-206 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,17 +410,8 @@ void add(int *p){
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -526,22 +471,6 @@ void add(int *p){
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正常的地址传递"><span class="nav-number">1.</span> <span class="nav-text">正常的地址传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针的值传递"><span class="nav-number">2.</span> <span class="nav-text">指针的值传递</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
