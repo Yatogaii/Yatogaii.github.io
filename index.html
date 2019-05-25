@@ -301,6 +301,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,7 +352,49 @@
       
         
           
-            
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><p>不行的代码</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        int res = 0;
+        int flag = 0;
+        ListNode * list = head;
+        int tmm = 0;
+        while(list != nullptr){
+            if(flag == 0)
+                res = res*10+ list-&gt;val;
+            else{
+                tmm = res%10;
+                res /= 10;
+                if(tmm != list-&gt;val){
+                    return false;
+                }
+                if(res == 0){
+                    return true;
+                }
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp;flag == 0){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        return false;
+    }
+};
+会卡在 [-129,129] 处，因为该算法都是按照链表元素为个数算的。
+</code></pre>
           
         
       
