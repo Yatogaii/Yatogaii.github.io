@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下： class Solution { public:     vector&amp;lt;int&amp;gt; intersect(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {         vector&amp;lt;int&amp;gt; res;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode-350">
 <meta property="og:url" content="http://yoursite.com/2019/05/27/LeetCode-350/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
+<meta property="og:description" content="这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下： class Solution { public:     vector&amp;lt;int&amp;gt; intersect(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {         vector&amp;lt;int&amp;gt; res;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-27T05:39:02.370Z">
+<meta property="og:updated_time" content="2019-05-27T07:59:53.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-350">
+<meta name="twitter:description" content="这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下： class Solution { public:     vector&amp;lt;int&amp;gt; intersect(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {         vector&amp;lt;int&amp;gt; res;">
 
 
 
@@ -299,6 +302,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -326,7 +351,29 @@
       
 
       
-        
+        <p>这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下：</p>
+<pre><code>class Solution {
+public:
+    vector&lt;int&gt; intersect(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+        vector&lt;int&gt; res;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        for(int i=0 , j=0;i &lt; nums1.size()&amp;&amp; j&lt;nums2.size();){
+            if(nums1[i] == nums2[j]){
+//                 if(mapping.find(nums1[i] == res.end())){     //说明res里还没有
+                    res.push_back(nums1[i]);
+                i++,j++;
+//                 }
+            } else if(nums1[i] &gt; nums2[j])
+                j++;
+            else
+                i++;
+        }
+        return res;
+    }
+};
+</code></pre><p><strong>执行用时 : 12 ms, 在Intersection of Two Arrays II的C++提交中击败了96.65% 的用户<br>内存消耗 : 8.9 MB, 在Intersection of Two Arrays II的C++提交中击败了82.06% 的用户</strong></p>
+
       
     </div>
     
@@ -359,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/29/JSP中绝对路径导入js文件的问题/" rel="prev" title="idea中jsp导入静态文件常见问题，看着一篇就够了">
+                idea中jsp导入静态文件常见问题，看着一篇就够了 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -426,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
