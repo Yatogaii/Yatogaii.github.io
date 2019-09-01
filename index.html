@@ -259,6 +259,998 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/UnityConcept/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/01/UnityConcept/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T10:50:40+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Unity中必须掌握的概念"><a href="#Unity中必须掌握的概念" class="headerlink" title="Unity中必须掌握的概念"></a>Unity中必须掌握的概念</h1><h2 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h2><ul>
+<li>世界坐标：整个场景的固定坐标，不会改变。（类似东南西北）</li>
+<li>本地坐标：物体本身的坐标，会随着物体的旋转而改变。（类似于生活中的前后左右）右X前Z上Y<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2>一组相关联的游戏对象的集合。<h2 id="游戏对象"><a href="#游戏对象" class="headerlink" title="游戏对象"></a>游戏对象</h2></li>
+<li>游戏运行时出现在场景中的游戏物体</li>
+<li>是一种<strong>容器</strong>，可以挂载<strong>组件</strong>。</li>
+<li>父、子物体<br>  子物体的坐标是<strong>相对于父物体</strong>的<br><br>子物体集成父物体的移动，旋转和缩放属性，但子物体不影响父物体。</li>
+</ul>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><ul>
+<li>游戏对象的<strong>功能模块</strong>。</li>
+<li>每个组件都是一个类的实例。</li>
+<li>常见组件<ul>
+<li>Transform变换组件：决定物体位置，旋转、缩放比。</li>
+<li>Mesh Filter网格过滤器：用于从资源中获取网格信息。 决定形状</li>
+<li>Mesh Renderer网格渲染器：从网格过滤器中获得几何形状，然后根据变化组件进行渲染。<br>可由里面的material属相来决定外观。</li>
+</ul>
+</li>
+<li>可以在Inspector里的Add Compinent来为一个游戏对象添加组件。</li>
+</ul>
+<h2 id="Material"><a href="#Material" class="headerlink" title="Material"></a>Material</h2><ul>
+<li>材质<ul>
+<li>可以直接在project面板出新建，拖到有<strong>Mesh Renderer</strong>组件的对象上，更改颜色之类的属性。</li>
+</ul>
+</li>
+<li>Shader着色器</li>
+<li>Texture纹理：附加到物体表面的贴图。<ul>
+<li>也可以直接拖动到物体上，原理上就是给到了物体的材质 -&gt; Mesh Renderer组件上。</li>
+</ul>
+</li>
+</ul>
+<h1 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h1><p>Project-&gt;Scene-&gt;GameObject-&gt;Component<br><br>重点学习的是<strong>组件</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/python中实现java的多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/25/python中实现java的多态/" itemprop="url">python中实现java的多态</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-25T15:44:23+08:00">
+                2019-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Java中，可以有多个同名方法，对不同的参数调用不同的方法，例如</p>
+<pre><code>public void func(String str){
+    return ;    
+}
+
+public void func(int a){
+    return ;    
+}
+</code></pre><p>在学习Python时，我很好奇一个python这种弱类型语言能否实现对于不同的参数自动分发到不同的方法内，经过百度发现了可以用修饰器mutlimethod来实现。<br>官方文档如下：<br><a href="https://pypi.org/project/multimethod/0.6/" title="mutlimethod Document" target="_blank" rel="noopener">“mutlimethod Document”</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/利用Python随机数来生成调查问卷的假结果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/21/利用Python随机数来生成调查问卷的假结果/" itemprop="url">利用Python随机数来生成调查问卷的假结果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T14:40:54+08:00">
+                2019-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本来是思修暑期调查的问卷，但是一个个找别人发太讨人厌了，就用python的随机数生成结果</p>
+<h3 id="生成结果代码"><a href="#生成结果代码" class="headerlink" title="生成结果代码"></a>生成结果代码</h3><pre><code>import random
+double = [3,7,9]
+mappings = {}
+for times in range(1,51):   #50次伪证
+    for No in range(1,11):   #生成10次随机数，对应十个题
+        if No in double:    #如果是2选1题
+            if random.randint(1,101) in range(1,51):     #选A
+                key = &apos;{d}A&apos;.format(d=No)
+                if key in mappings:
+                    mappings[key] += 1
+                else:
+                    mappings[key] = 1
+            else:                                   #选B
+                key = &apos;{d}B&apos;.format(d=No)
+                if key in mappings:
+                    mappings[key] += 1
+                else:
+                    mappings[key] = 1
+        else :              #那么就是三选一的题了
+            randNum = random.randint(1,101)
+            if randNum in range(1, 34):  # 选A
+                ans = &apos;A&apos;
+            elif randNum in range(34, 67):
+                ans = &apos;B&apos;
+            else:
+                ans = &apos;C&apos;
+            key = &apos;{d}{ans}&apos;.format(d=No,ans=ans)
+            if key in mappings:
+                mappings[key] += 1
+            else:
+                mappings[key] = 1
+
+print(mappings)
+</code></pre><h3 id="python提交问卷星"><a href="#python提交问卷星" class="headerlink" title="python提交问卷星"></a>python提交问卷星</h3><p>这一部分会被验证码卡死，还有待改进</p>
+<pre><code>import requests
+import re
+import time
+import random
+
+
+class WenJuanXing:
+    def __init__(self, url):
+        &quot;&quot;&quot;
+        :param url:要填写的问卷的url
+        &quot;&quot;&quot;
+        self.wj_url = url
+        self.post_url = None
+        self.header = None
+        self.cookie = None
+        self.data = None
+
+    def set_data(self):
+        &quot;&quot;&quot;
+        这个函数中生成问卷的结果，可根据问卷结果，随机生成答案
+        :return:
+        &quot;&quot;&quot;
+        self.data = {
+            &apos;submitdata&apos;: &apos;1$3}2$3}3$1}4$2}5$2}6$2}7$2}8$2}9$2}10$2&apos;
+        }
+
+    def set_header(self):
+        &quot;&quot;&quot;
+        随机生成ip，设置X-Forwarded-For
+        ip需要控制ip段，不然生成的大部分是国外的
+        直接利用随机数生成IP地址
+        :return:
+        &quot;&quot;&quot;
+        ip = &apos;{}.{}.{}.{}&apos;.format(112, random.randint(64, 68), random.randint(0, 255), random.randint(0, 255))
+        self.header = {
+            &apos;X-Forwarded-For&apos;: ip,
+            &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101 Firefox/68.0&apos;
+        }
+
+    def get_ktimes(self):
+        &quot;&quot;&quot;
+        随机生成一个ktimes,ktimes是构造post_url需要的参数，为一个整数
+        :return:
+        &quot;&quot;&quot;
+        return random.randint(15, 50)
+
+    def get_response(self):
+        &quot;&quot;&quot;
+        访问问卷网页，获取网页代码
+        :return: get请求返回的response
+        &quot;&quot;&quot;
+        response = requests.get(url=self.wj_url, headers=self.header)
+        self.cookie = response.cookies
+        return response
+
+    def get_jqnonce(self, response):
+        &quot;&quot;&quot;
+        通过正则表达式找出jqnonce,jqnonce是构造post_url需要的参数
+        :param response: 访问问卷网页，返回的reaponse
+        :return: 找到的jqnonce
+        &quot;&quot;&quot;
+        jqnonce = re.search(r&apos;.{8}-.{4}-.{4}-.{4}-.{12}&apos;, response.text)
+        return jqnonce.group()
+
+    def get_rn(self, response):
+        &quot;&quot;&quot;
+        通过正则表达式找出rn,rn是构造post_url需要的参数
+        :param response: 访问问卷网页，返回的reaponse
+        :return: 找到的rn
+        &quot;&quot;&quot;
+        rn = re.search(r&apos;\d{9,10}\.\d{8}&apos;, response.text)
+        return rn.group()
+
+    def get_id(self, response):
+        &quot;&quot;&quot;
+        通过正则表达式找出问卷id,问卷是构造post_url需要的参数
+        :param response: 访问问卷网页，返回的reaponse
+        :return: 找到的问卷id
+        &quot;&quot;&quot;
+        id = re.search(r&apos;\d{8}&apos;, response.text)
+        return id.group()
+
+    def get_jqsign(self, ktimes, jqnonce):
+        &quot;&quot;&quot;
+        通过ktimes和jqnonce计算jqsign,jqsign是构造post_url需要的参数
+        :param ktimes: ktimes
+        :param jqnonce: jqnonce
+        :return: 生成的jqsign
+        &quot;&quot;&quot;
+        result = []
+        b = ktimes % 10
+        if b == 0:
+            b = 1
+        for char in list(jqnonce):
+            f = ord(char) ^ b
+            result.append(chr(f))
+        return &apos;&apos;.join(result)
+
+    def get_start_time(self, response):
+        &quot;&quot;&quot;
+        通过正则表达式找出问卷starttime,问卷是构造post_url需要的参数
+        :param response: 访问问卷网页，返回的reaponse
+        :return: 找到的starttime
+        &quot;&quot;&quot;
+        start_time = re.search(r&apos;\d+?/\d+?/\d+?\s\d+?:\d{2}&apos;, response.text)
+        return start_time.group()
+
+    def set_post_url(self):
+        &quot;&quot;&quot;
+        生成post_url
+        :return:
+        &quot;&quot;&quot;
+        self.set_header()  # 设置请求头，更换ip
+        response = self.get_response()  # 访问问卷网页，获取response
+        ktimes = self.get_ktimes()  # 获取ktimes
+        jqnonce = self.get_jqnonce(response)  # 获取jqnonce
+        rn = self.get_rn(response)  # 获取rn
+        id = self.get_id(response)  # 获取问卷id
+        jqsign = self.get_jqsign(ktimes, jqnonce)  # 生成jqsign
+        start_time = self.get_start_time(response)  # 获取starttime
+        time_stamp = &apos;{}{}&apos;.format(int(time.time()), random.randint(100, 200))  # 生成一个时间戳，最后三位为随机数
+        url = &apos;https://www.wjx.cn/joinnew/processjq.ashx?submittype=1&amp;curID={}&amp;t={}&amp;starttim&apos; \
+              &apos;e={}&amp;ktimes={}&amp;rn={}&amp;jqnonce={}&amp;jqsign={}&apos;.format(id, time_stamp, start_time, ktimes, rn, jqnonce, jqsign)
+        self.post_url = url  # 设置url
+        print(self.post_url)
+
+    def post_data(self):
+        &quot;&quot;&quot;
+        发送数据给服务器
+        :return: 服务器返回的结果
+        &quot;&quot;&quot;
+        self.set_data()
+        response = requests.post(url=self.post_url, data=self.data, headers=self.header, cookies=self.cookie)
+        return response
+
+    def run(self):
+        &quot;&quot;&quot;
+        填写一次问卷
+        :return:
+        &quot;&quot;&quot;
+        self.set_post_url()
+        result = self.post_data()
+        print(result.content.decode())
+
+    def mul_run(self, n):
+        &quot;&quot;&quot;
+        填写多次问卷
+        :return:
+        &quot;&quot;&quot;
+        for i in range(n):
+            time.sleep(1)
+            self.run()
+
+
+if __name__ == &apos;__main__&apos;:
+    w = WenJuanXing(&apos;https://www.wjx.cn/jq/44307794.aspx&apos;)
+    w.mul_run(50)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/安卓如何发送短信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/02/安卓如何发送短信/" itemprop="url">安卓如何发送短信</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-02T16:32:39+08:00">
+                2019-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安卓发送短信现在用的并不多，但是用的时候也要知道怎么用，本文章会介绍较为基本的短信发送的方法。</p>
+<h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="SmsManager"><a href="#SmsManager" class="headerlink" title="SmsManager"></a>SmsManager</h3><p>所属包： <em>android.telephony.SmsManager</em><br>获取方式：直接通过SmsManager类的静态方法获取。</p>
+<pre><code>mSmsManager = SmsManager.getDefault();
+</code></pre><h2 id="发送语句"><a href="#发送语句" class="headerlink" title="发送语句"></a>发送语句</h2><pre><code>mSmsManager.sendTextMessage(&quot;+86&quot;+inputNumber.getText().toString(),null,smsContent,null,null);
+第一个参数是手机号，记得要+86代表中国大陆，第三个是短信内容，切记短信幅度不要超过短信的限制、
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/Redis密码设置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/11/Redis密码设置/" itemprop="url">Redis密码设置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T12:08:38+08:00">
+                2019-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Redis的安装"><a href="#Redis的安装" class="headerlink" title="Redis的安装"></a>Redis的安装</h1><p>在Ubuntu下安装redis很轻松</p>
+<pre><code>apt-get install update
+apt-get install redis-server
+</code></pre><p>之后输入命令</p>
+<pre><code>redis-server
+redis-cli
+</code></pre><p>即可确认是否安装成功</p>
+<h2 id="Redis密码的设置"><a href="#Redis密码的设置" class="headerlink" title="Redis密码的设置"></a>Redis密码的设置</h2><p>进入redis命令行之后，输入    </p>
+<pre><code>config get requirepass
+</code></pre><p>可以看到密码是空</p>
+<pre><code>config set requirepass 密码
+</code></pre><p>即可设置密码</p>
+<h2 id="Redis的远程登录"><a href="#Redis的远程登录" class="headerlink" title="Redis的远程登录"></a>Redis的远程登录</h2><p>仅设置密码还无法远程登录redis，因为redis一开始是只允许在本机登陆的，需要在redis的config里进行相应的设置。</p>
+<ol>
+<li>注释掉Bind 127.0.0.1</li>
+<li>将protected-mode 设为no</li>
+<li>设置远程链接密码</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/python中tesserocr的安装和使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="闫奎滈">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/03/python中tesserocr的安装和使用/" itemprop="url">python中tesserocr的安装和使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T08:47:04+08:00">
+                2019-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>我是用conda包安装的，一开始试了各种方法都不行，最后把tesseract放到C的默认路径，再重装了一下tesserocr的包就行了，因为安装的莫名其妙，这里也不再过多阐释了。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>一开始安装之后识别爬虫下载的二维码总是没结果，在百度上下载的图片就可以，比较之后猜测是图片size的影响。<br>用Tesserocr识别图片的时候一定要注意图片的尺寸要在400*125以上，所以需要用程序对其进行修改大小，二值化方便识别</p>
+<h3 id="python修改图片尺寸"><a href="#python修改图片尺寸" class="headerlink" title="python修改图片尺寸"></a>python修改图片尺寸</h3><pre><code>def resizeImg(self,img):
+    (x ,y) =img.size
+    x_s = x * 3
+    y_s = y * 3
+    img = img.resize((x_s,y_s),Image.ANTIALIAS)
+    return img
+</code></pre><h3 id="python二值化图像"><a href="#python二值化图像" class="headerlink" title="python二值化图像"></a>python二值化图像</h3><pre><code>#需要注意的是0是黑色，255是白色
+def binaryImg(self,img,threshold = 150):
+    Lim = img.convert(&apos;L&apos;)
+    Lim.show()
+    table = []
+    for i in range(256):
+        if i &lt; threshold:
+            table.append(0)
+        else:
+            table.append(1)
+    # convert to binary image by the table
+    bim = Lim.point(table, &apos;1&apos;)
+    bim.show()
+    f = open(self.localImgUrl,&apos;wb&apos;)
+    bim.save(f)
+    return bim
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/JSP中绝对路径导入js文件的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -931,7 +1923,7 @@ public:
       
         
           
-            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><p>不行的代码</p>
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>##<br>不行的代码</p>
 <pre><code>/**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -1080,894 +2072,13 @@ public:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-206/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫奎滈">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/25/LeetCode-206/" itemprop="url">LeetCode-206</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:13+08:00">
-                2019-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/C-C-中指针在函数中传递的问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫奎滈">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/24/C-C-中指针在函数中传递的问题/" itemprop="url">C/C++中指针在函数中传递的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T07:02:21+08:00">
-                2019-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="正常的地址传递"><a href="#正常的地址传递" class="headerlink" title="正常的地址传递"></a>正常的地址传递</h2><p>众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-void add(int *p);
-int main(){
-    int p;
-    add(&amp;p);
-    cout &lt;&lt; p;
-    return 0;
-}
-void add(int *p){
-    int in;
-    cin &gt;&gt; in;
-    *p = in;
-}
-输出结果为8.
-</code></pre><h2 id="指针的值传递"><a href="#指针的值传递" class="headerlink" title="指针的值传递"></a>指针的值传递</h2><p>如果上方的程序改成这个样子，程序会没有输出（因为空指针）。</p>
-<pre><code>#include &lt;iostream&gt;
-using namespace std;
-void add(int *p);
-int main(){
-    int *p;
-    add(p);
-    cout &lt;&lt; *p;
-    return 0;
-}
-void add(int *p){
-    int in;
-    cin &gt;&gt; in;
-    *p = in;
-}
-</code></pre><p>因为这个样子进行传递的话就相当于把指针进行了参数传递！！！<br>传递的不是指针的地址，而是指针的值，这就相当于是在函数之间进行值传递了，main函数里当然看不到add函数里给P指向的值。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫奎滈">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/Java-通过URL来调用WebAPI/" itemprop="url">Java 通过URL来调用WebAPI</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T07:27:14+08:00">
-                2019-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="什么是API"><a href="#什么是API" class="headerlink" title="什么是API"></a>什么是API</h2><p>API（Application programming interface）是一些预先定义的函数，无需理解内容细节，只需要根据协议调用即可。</p>
-<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p>本文主要想描述的WebApi是指一些通过Http协议调用的第三方提供的服务，这种Api在给出的时候一般都是一种URL的形式，调用时直接用过Http协议，对URL上加上自己想要加的参数之后接收返回值即可。</p>
-<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><p>参考    <a href="https://blog.csdn.net/irony0egoist/article/details/81019440" title="邻家大表哥的CSDN博客" target="_blank" rel="noopener">邻家大表哥的CSDN博客</a></p>
-<h2 id="URL的各个组成部分"><a href="#URL的各个组成部分" class="headerlink" title="URL的各个组成部分"></a>URL的各个组成部分</h2><p>一个完整的URL<br>    <code>http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#r_70732423</code><br>其中应包括：</p>
-<h3 id="协议部分"><a href="#协议部分" class="headerlink" title="协议部分"></a>协议部分</h3><p>如本例中的http:，这代表了这个URL的http协议的，常见的还有https和ftp，后面的//是分隔符</p>
-<h3 id="域名部分"><a href="#域名部分" class="headerlink" title="域名部分"></a>域名部分</h3><p>本例中的”<a href="http://www.aspxfans.com&quot;，一个IP也可以当做域名使用，由自己的IP映射到域名是需要自己购买域名的。" target="_blank" rel="noopener">www.aspxfans.com&quot;，一个IP也可以当做域名使用，由自己的IP映射到域名是需要自己购买域名的。</a></p>
-<h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>域名后面的 “:8080” 是端口号，如果没有给出端口号说明是默认的http端口号，为80，大型网站一般都没有端口号。</p>
-<h3 id="虚拟目录部分"><a href="#虚拟目录部分" class="headerlink" title="虚拟目录部分"></a>虚拟目录部分</h3><p>8080: 后面的 /news/ 是虚拟目录部分，表示文件在服务器上的位置，虚拟目录并不是必要的。</p>
-<h3 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h3><p>对应本例中的index.asp，表示浏览的具体是哪个文件，文件名部分是可以省略的，省略之后则会使用默认的文件，一般是index.*。</p>
-<h3 id="参数部分"><a href="#参数部分" class="headerlink" title="参数部分"></a>参数部分</h3><p>从文件名后的”?”开始对应的就是URL的参数部分，URL的参数是键值对的形式，即Key=value，中间用&amp;分开多个参数。</p>
-<h3 id="锚部分"><a href="#锚部分" class="headerlink" title="锚部分"></a>锚部分</h3><p>最后的#r_70732423，不是一个URL必须的部分，通常表示在一个界面的浏览位置。</p>
-<h1 id="Java实例"><a href="#Java实例" class="headerlink" title="Java实例"></a>Java实例</h1><h2 id="百度地图给出的经纬度转实际地址API"><a href="#百度地图给出的经纬度转实际地址API" class="headerlink" title="百度地图给出的经纬度转实际地址API"></a>百度地图给出的经纬度转实际地址API</h2><h3 id="服务文档"><a href="#服务文档" class="headerlink" title="服务文档"></a>服务文档</h3><p>在调用一个第三方平台的Api时，一定要仔细浏览他所给出的服务文档，这是我们接触Api调用方式最基本的途径。<br><img src="/2019/05/13/Java-通过URL来调用WebAPI/BaiduMapLocationDecode.png" alt="APi文档" title="文档"><br>在文档里面我们可以看到WebApi对应的Http链接和参数说明，下面直接利用Java的URL类调用。</p>
-<pre><code>public void transform(final String[] positions){
-//        final String[] position ={&quot;39.26&quot;,&quot;116.2317&quot;};
-        new Thread(){
-            @Override
-            public void run(){
-                try{
-                    ObjectBox oBox = ObjectBox.getInstance();
-                    Handler mHandler = oBox.getmHandler();
-                    String uri = &quot;http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&amp;location=&quot;+positions[0]+&quot;,&quot;+positions[1]+&quot;output=json&amp;pois=1&amp;latest_admin=1&amp;ak=&quot;+AK;
-                    URL url = new URL(uri);
-                    byte[] recBuf = new byte[1024];
-                    HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                    if (urlConnection.getResponseCode() == 200){
-                        InputStream is = urlConnection.getInputStream();
-                        int length = is.read(recBuf);
-                        String res = new String(recBuf,0,length);
-                    } else Log.w(&quot;Transform&quot;, &quot;status code&quot;+urlConnection.getResponseCode());
-                }catch (Exception E){E.printStackTrace();}
-            }
-        }.start();
-    }
-</code></pre><p>利用String的字符串拼接，将自己的参数加到Url中，之后利用java的<strong>Url</strong>类和<strong>HttpURLConnection</strong>类创建链接，之后获取利用urlConnetcion的<strong>getInputStream方法</strong>进行读取便可得到调用结果,返回结果可能是Xml也可能是Json，根据返回类型进行处理即可得到自己的数据。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/需要填的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫奎滈">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/11/需要填的坑/" itemprop="url">需要填的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T10:42:27+08:00">
-                2019-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#Git<br>git的基本使用，比如建立远程仓库，commit，提交修改之类的。</p>
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>python在服务器端的应用，具体参考这篇代码详细分析</p>
-<pre><code># -*- coding:utf-8 -*-
-
-import socket as Socket
-import threading
-import json 
-import mysql.connector
-#用来判断动作的switcher
-ACTION_LOGIN = -100
-ACTION_GET_CAR = 100
-ACTION_CAR_SAVE = 123
-#用来检查账号查询结果的switcher
-RESULT_ERROR = 11
-RESULT_REGISTER = 12
-RESULT_SUCCESS = 10
-#Save the mapping between Garage Number and each Gararge&apos;s soc
-global garageSoc
-#存放用户的id，在注册用户或者密码正确时赋值
-global ID
-def Main():
-    getGarageSocket()
-    soc = Socket.socket(Socket.AF_INET,Socket.SOCK_STREAM)
-    soc.bind((&apos;0.0.0.0&apos;,8080))
-    soc.listen(20)
-    while True:
-        s , addr = soc.accept()
-        print(&apos;connect %s:%s &apos; % (addr))
-        # print(s.recv(1024).decode(&apos;utf-8&apos;))
-        t = threading.Thread(target=handleMessage,args=(s,addr))
-        print(&apos;开启了一个新的线程&apos;)
-        t.start()
-
-#json解析
-# jsonStr = &apos;{&quot;account&quot;:&quot;123213&quot;,&quot;password&quot;:&quot;213&quot;}&apos;
-# parJson = json.loads(jsonStr)
-# print(parJson[&apos;account&apos;])
-# print(parJson)
-
-def handleMessage(soc,addr):
-    print(&apos;start handle message&apos;)
-    while True:
-        recStr = soc.recv(1024).decode(&apos;utf-8&apos;)
-        jsonParser = json.loads(recStr)
-        #用字典模拟的switch
-        if jsonParser[&apos;action&apos;] == ACTION_LOGIN:        #action是login的话需要输入参数，进行特殊处理
-            result = messageSwitcher[jsonParser[&apos;action&apos;]](jsonParser[&apos;account&apos;],jsonParser[&apos;password&apos;])    #模拟switch来处理事务
-        else:                                           #不需要参数，直接运行函数
-            result = messageSwitcher[jsonParser[&apos;action&apos;]]()
-        # result = messSwitcher[jsonParser[&apos;action&apos;]](jsonParser[&apos;account&apos;],jsonParser[&apos;password&apos;])     #两个方括号get到字典和json字符串的值，最后一个小括号传入参数和运行函数
-        sendStr = &apos;%d&apos;%(result)
-        soc.send(sendStr)
-        print(&apos;返回结果 %d&apos; % result)
-
-#一下几个函数是处理对应的Action的
-def loginCheck(account,password):
-    sqlConnect = mysql.connector.connect(user=&apos;root&apos;,password=&apos;Yt00206.&apos;,database=&apos;garage&apos;)
-    cursor = sqlConnect.cursor()    #处理sql事务的客户端
-    #查询账号
-    cursor.execute(&apos;SELECT * FROM accounts WHERE account=&quot;%s&quot;&apos; % account)
-    #提交事务
-    #sqlConnect.commit()   #报错
-    #获得结果
-    result = cursor.fetchall()
-    print(result)
-    if result == []:    #如果列表为空，说明这个还没被注册过
-        registerNewAccount(sqlConnect,cursor,account,password)
-        print(&apos;注册成功&apos;)
-        ID = account
-        return RESULT_REGISTER
-    else:               #列表不是空，表示已有该账户
-        if password == result[0][2]: #[0]表示唯一的一个数据，[2]表示密码栏目在返回的tuple里面的第三个位置，例如[(1, u&apos;admin&apos;, u&apos;123456&apos;)]
-            ID = account
-            return RESULT_SUCCESS
-        else :
-            return RESULT_ERROR
-
-def carGet():
-    return 1
-
-def carSave():
-    return 1
-
-def registerNewAccount(sqlConnect,sqlCursor,account,password):
-    sqlCursor.execute(&apos;INSERT INTO accounts (account,password) values (&quot;%s&quot;,&quot;%s&quot;)&apos; % (account,password) )
-    sqlConnect.commit()
-
-def getGarageSocket():
-    garageSoc = socket.socket(AF_INET,STREAM_SOCK)
-
-socMapping = {
-    1 : garageSoc
-}
-messageSwitcher = {
-    ACTION_LOGIN : loginCheck,
-    ACTION_CAR_SAVE : carSave,
-    ACTION_GET_CAR : carGet
-}
-if __name__ == &apos;__main__&apos;:
-    Main()
-</code></pre><h1 id="Java和安卓开发小细节"><a href="#Java和安卓开发小细节" class="headerlink" title="Java和安卓开发小细节"></a>Java和安卓开发小细节</h1><p>单例模式，activity传递信息</p>
-<h1 id="C-中线程和Socket"><a href="#C-中线程和Socket" class="headerlink" title="C++中线程和Socket"></a>C++中线程和Socket</h1><p>​</p>
-<pre><code>#include &quot;winsock2.h&quot;
-#include &lt;iostream&gt;
-#include &lt;thread&gt;
-#pragma comment(lib, &quot;ws2_32.lib&quot;)
-
-using namespace std;
-
-const int BUF_SIZE = 64;
-
-WSADATA wsd; //WSADATA变量
-SOCKET sHost; //服务器套接字
-SOCKADDR_IN servAddr; //服务器地址
-char buf[BUF_SIZE]; //接收数据缓冲区
-char bufRecv[BUF_SIZE];
-int retVal;
-
-int socketInit();
-int messageThread();
-
-int main() {
-    socketInit();
-    thread mThread(messageThread);
-    mThread.detach();
-    //socketThread();
-    while (1) {
-
-    }
-    return 0;
-}
-int socketInit()
-{
-    //初始化套结字动态库
-    if (WSAStartup(MAKEWORD(2, 2), &amp;wsd) != 0)
-    {
-        cout &lt;&lt; &quot;WSAStartup failed!&quot; &lt;&lt; endl;
-        return -1;
-    }
-    //创建套接字
-    sHost = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (INVALID_SOCKET == sHost)
-    {
-        cout &lt;&lt; &quot;socket failed!&quot; &lt;&lt; endl;
-        WSACleanup();//释放套接字资源
-        return  -1;
-    }
-
-    //设置服务器地址
-    servAddr.sin_family = AF_INET;
-    servAddr.sin_addr.s_addr = inet_addr(&quot;127.0.0.1&quot;);
-    servAddr.sin_port = htons((short)8080);
-    int nServAddlen = sizeof(servAddr);
-
-    //连接服务器
-    retVal = connect(sHost, (LPSOCKADDR)&amp;servAddr, sizeof(servAddr));
-    if (SOCKET_ERROR == retVal)
-    {
-        cout &lt;&lt; &quot;connect failed!&quot; &lt;&lt; endl;
-        closesocket(sHost); //关闭套接字
-        WSACleanup(); //释放套接字资源
-        return -1;
-    }
-    cout &lt;&lt; &quot;链接成功&quot; &lt;&lt; endl;
-    return 0;
-}
-
-int messageThread() {
-    while (true)
-    {
-        //向服务器发送数据
-        ZeroMemory(buf, BUF_SIZE);
-        cout &lt;&lt; &quot; 向服务器发送数据:  &quot;;
-        cin &gt;&gt; buf;
-        retVal = send(sHost, buf, strlen(buf), 0);
-        if (SOCKET_ERROR == retVal)
-        {
-            cout &lt;&lt; &quot;send failed!&quot; &lt;&lt; endl;
-            closesocket(sHost); //关闭套接字
-            WSACleanup(); //释放套接字资源
-            return -1;
-        }
-        //RecvLine(sHost, bufRecv);
-        ZeroMemory(bufRecv, BUF_SIZE);
-        recv(sHost, bufRecv, BUF_SIZE, 0); // 接收服务器端的数据， 只接收5个字符
-        cout &lt;&lt; endl &lt;&lt; &quot;从服务器接收数据：&quot; &lt;&lt; bufRecv;
-        cout &lt;&lt; &quot;\n&quot;;
-    }
-    //退出
-    closesocket(sHost); //关闭套接字
-    WSACleanup(); //释放套接字资源
-}
-</code></pre><h1 id="Java调用Api，HttpURL"><a href="#Java调用Api，HttpURL" class="headerlink" title="Java调用Api，HttpURL"></a>Java调用Api，HttpURL</h1><p>这一些常见java类使用​</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="闫奎滈">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-11T09:36:41+08:00">
-                2019-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2011,7 +2122,7 @@ int messageThread() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
