@@ -1,490 +1,1345 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <title>Yatogami&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="MinHow,MinHow's Blog">
-  
-  <meta property="og:type" content="website">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录程序员成长点滴">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Yatogami&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
+<meta property="og:description" content="记录程序员成长点滴">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yatogami&#39;s Blog">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/pace.min.js"></script>
+<meta name="twitter:description" content="记录程序员成长点滴">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/2/">
+
+
+
+
+
+  <title>Yatogami's Blog</title>
   
 
-  
-  
+
+
+
+
+
+
 
 </head>
-</html>
-<body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">MinHow&#39;s Blog</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        MinHow&#39;s Blog
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 WEB 开发的技术博客
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="MinHow" target="_blank" href="//minhow.com">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/wongminho">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap">
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
   
-    <article id="post-安卓如何发送短信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/安卓如何发送短信/">安卓如何发送短信</a>
-    </h1>
   
 
-          
-      </header>
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/08/02/安卓如何发送短信/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="安卓如何发送短信" title="安卓如何发送短信">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                安卓发送短信现在用的并不多，但是用的时候也要知道怎么用，本文章会介绍较为基本的短信发送的方法。
-基本组件SmsManager所属包： android.telephony.SmsManager获取方式：直接通过SmsManager类的静态方法获取。
-mSmsManager = SmsManager.getDefault();
-发送语句mSmsManager.sendText...
-            </p>
-        </div>
-      
-        
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yatogami's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-08-02</li>
-            
-            
-        </ul>
-        
-            <a href="/2019/08/02/安卓如何发送短信/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
+      
+        <p class="site-subtitle">Yatogami's Blog</p>
+      
   </div>
-</article>
 
-
-  
-    <article id="post-Redis密码设置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/11/Redis密码设置/">Redis密码设置</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/07/11/Redis密码设置/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="Redis密码设置" title="Redis密码设置">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Redis的安装在Ubuntu下安装redis很轻松
-apt-get install update
-apt-get install redis-server
-之后输入命令
-redis-server
-redis-cli
-即可确认是否安装成功
-Redis密码的设置进入redis命令行之后，输入    
-config get requirepass
-可以看到密码是空
-confi...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-07-11</li>
-            
-            
-        </ul>
-        
-            <a href="/2019/07/11/Redis密码设置/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-</article>
+</div>
 
-
-  
-    <article id="post-python中tesserocr的安装和使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/03/python中tesserocr的安装和使用/">python中tesserocr的安装和使用</a>
-    </h1>
+<nav class="site-nav">
   
 
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/07/03/python中tesserocr的安装和使用/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="python中tesserocr的安装和使用" title="python中tesserocr的安装和使用">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                安装我是用conda包安装的，一开始试了各种方法都不行，最后把tesseract放到C的默认路径，再重装了一下tesserocr的包就行了，因为安装的莫名其妙，这里也不再过多阐释了。
-使用一开始安装之后识别爬虫下载的二维码总是没结果，在百度上下载的图片就可以，比较之后猜测是图片size的影响。用Tesserocr识别图片的时候一定要注意图片的尺寸要在400*125以上，所...
-            </p>
-        </div>
+  
+    <ul id="menu" class="menu">
       
         
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-                <li><i class="fa fa-calendar"></i>2019-07-03</li>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            
-        </ul>
-        
-            <a href="/2019/07/03/python中tesserocr的安装和使用/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-JSP中绝对路径导入js文件的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/29/JSP中绝对路径导入js文件的问题/">idea中jsp导入静态文件常见问题，看着一篇就够了</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/05/29/JSP中绝对路径导入js文件的问题/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="idea中jsp导入静态文件常见问题，看着一篇就够了" title="idea中jsp导入静态文件常见问题，看着一篇就够了">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                错误信息absolute paths not recommended in jsps.
-这句话意思是在jsp文件中，不建议使用绝对路径来导入静态文件，如css，js等。
-百度给出的结果直接用$获得上下文路径把
-&lt;script src=&quot;$/libs/jquery/jquery.min.js&quot; &gt;&lt;/script&gt;
-改为
-&lt;...
-            </p>
-        </div>
+            首页
+          </a>
+        </li>
       
         
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-                <li><i class="fa fa-calendar"></i>2019-05-29</li>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-        </ul>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
         
-            <a href="/2019/05/29/JSP中绝对路径导入js文件的问题/#more" class="article-more-link">more&gt;&gt;</a>
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
         
-    </footer>
-  </div>
-</article>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
 
+      
+    </ul>
+  
 
   
-    <article id="post-LeetCode-350" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/27/LeetCode-350/">LeetCode-350</a>
-    </h1>
+      
+
   
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/LeetCode/">LeetCode</a>
-                  
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/安卓如何发送短信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/02/安卓如何发送短信/" itemprop="url">安卓如何发送短信</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-02T16:32:39+08:00">
+                2019-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div class="article-img">
-            <a href="/2019/05/27/LeetCode-350/">
+      
+
+      
+        
+          
+            <p>安卓发送短信现在用的并不多，但是用的时候也要知道怎么用，本文章会介绍较为基本的短信发送的方法。</p>
+<h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="SmsManager"><a href="#SmsManager" class="headerlink" title="SmsManager"></a>SmsManager</h3><p>所属包： <em>android.telephony.SmsManager</em><br>获取方式：直接通过SmsManager类的静态方法获取。</p>
+<pre><code>mSmsManager = SmsManager.getDefault();
+</code></pre><h2 id="发送语句"><a href="#发送语句" class="headerlink" title="发送语句"></a>发送语句</h2><pre><code>mSmsManager.sendTextMessage(&quot;+86&quot;+inputNumber.getText().toString(),null,smsContent,null,null);
+第一个参数是手机号，记得要+86代表中国大陆，第三个是短信内容，切记短信幅度不要超过短信的限制、
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/Redis密码设置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                <img src="http://yoursite.com/images/banner.jpg" alt="LeetCode-350" title="LeetCode-350">
-                
-            </a>
+                <a class="post-title-link" href="/2019/07/11/Redis密码设置/" itemprop="url">Redis密码设置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T12:08:38+08:00">
+                2019-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="article-feed">
-            <p>
-                这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下：
-class Solution {
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Redis的安装"><a href="#Redis的安装" class="headerlink" title="Redis的安装"></a>Redis的安装</h1><p>在Ubuntu下安装redis很轻松</p>
+<pre><code>apt-get install update
+apt-get install redis-server
+</code></pre><p>之后输入命令</p>
+<pre><code>redis-server
+redis-cli
+</code></pre><p>即可确认是否安装成功</p>
+<h2 id="Redis密码的设置"><a href="#Redis密码的设置" class="headerlink" title="Redis密码的设置"></a>Redis密码的设置</h2><p>进入redis命令行之后，输入    </p>
+<pre><code>config get requirepass
+</code></pre><p>可以看到密码是空</p>
+<pre><code>config set requirepass 密码
+</code></pre><p>即可设置密码</p>
+<h2 id="Redis的远程登录"><a href="#Redis的远程登录" class="headerlink" title="Redis的远程登录"></a>Redis的远程登录</h2><p>仅设置密码还无法远程登录redis，因为redis一开始是只允许在本机登陆的，需要在redis的config里进行相应的设置。</p>
+<ol>
+<li>注释掉Bind 127.0.0.1</li>
+<li>将protected-mode 设为no</li>
+<li>设置远程链接密码</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/python中tesserocr的安装和使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/03/python中tesserocr的安装和使用/" itemprop="url">python中tesserocr的安装和使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T08:47:04+08:00">
+                2019-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>我是用conda包安装的，一开始试了各种方法都不行，最后把tesseract放到C的默认路径，再重装了一下tesserocr的包就行了，因为安装的莫名其妙，这里也不再过多阐释了。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>一开始安装之后识别爬虫下载的二维码总是没结果，在百度上下载的图片就可以，比较之后猜测是图片size的影响。<br>用Tesserocr识别图片的时候一定要注意图片的尺寸要在400*125以上，所以需要用程序对其进行修改大小，二值化方便识别</p>
+<h3 id="python修改图片尺寸"><a href="#python修改图片尺寸" class="headerlink" title="python修改图片尺寸"></a>python修改图片尺寸</h3><pre><code>def resizeImg(self,img):
+    (x ,y) =img.size
+    x_s = x * 3
+    y_s = y * 3
+    img = img.resize((x_s,y_s),Image.ANTIALIAS)
+    return img
+</code></pre><h3 id="python二值化图像"><a href="#python二值化图像" class="headerlink" title="python二值化图像"></a>python二值化图像</h3><pre><code>#需要注意的是0是黑色，255是白色
+def binaryImg(self,img,threshold = 150):
+    Lim = img.convert(&apos;L&apos;)
+    Lim.show()
+    table = []
+    for i in range(256):
+        if i &lt; threshold:
+            table.append(0)
+        else:
+            table.append(1)
+    # convert to binary image by the table
+    bim = Lim.point(table, &apos;1&apos;)
+    bim.show()
+    f = open(self.localImgUrl,&apos;wb&apos;)
+    bim.save(f)
+    return bim
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/JSP中绝对路径导入js文件的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/29/JSP中绝对路径导入js文件的问题/" itemprop="url">idea中jsp导入静态文件常见问题，看着一篇就够了</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T15:33:02+08:00">
+                2019-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><pre><code>absolute paths not recommended in jsps.
+</code></pre><p>这句话意思是在jsp文件中，不建议使用绝对路径来导入静态文件，如css，js等。</p>
+<h2 id="百度给出的结果"><a href="#百度给出的结果" class="headerlink" title="百度给出的结果"></a>百度给出的结果</h2><h3 id="直接用-获得上下文路径"><a href="#直接用-获得上下文路径" class="headerlink" title="直接用$获得上下文路径"></a>直接用$获得上下文路径</h3><p>把</p>
+<pre><code>&lt;script src=&quot;$/libs/jquery/jquery.min.js&quot; &gt;&lt;/script&gt;
+</code></pre><p>改为</p>
+<pre><code>&lt;script src=&quot;${pageContext.request.contextPath}/libs/jquery/jquery.min.js&quot; &gt;&lt;/script&gt;
+</code></pre><p>即可</p>
+<h3 id="用JSP中的Java代码获取上下文路径"><a href="#用JSP中的Java代码获取上下文路径" class="headerlink" title="用JSP中的Java代码获取上下文路径"></a>用JSP中的Java代码获取上下文路径</h3><p>代码：</p>
+<pre><code>&lt;%
+String path = request.getContextPath();
+String basePath = request.getScheme() + &quot;://&quot;
++ request.getServerName() + &quot;:&quot; + request.getServerPort()
++ path + &quot;/&quot;;
+%&gt;
+</code></pre><p>路径改为</p>
+<pre><code>&lt;img src=&quot;&lt;%=basePath%&gt;images/head_success.jpg&quot; height=&quot;80&quot; width=&quot;650&quot;/&gt;
+</code></pre><h2 id="上述方法无法使用的情况"><a href="#上述方法无法使用的情况" class="headerlink" title="上述方法无法使用的情况"></a>上述方法无法使用的情况</h2><p>当web.xml中的webapp版本较低时，browser是无法解析 ${pageContext.request.contextPath} 的，浏览器指向的为$%7BpageContext.request.contextPath%7D，发生这种情况就是webapp版本过低，修改web.xml文件即可。</p>
+<h3 id="web-xml中不同版本的头部声明"><a href="#web-xml中不同版本的头部声明" class="headerlink" title="web.xml中不同版本的头部声明"></a>web.xml中不同版本的头部声明</h3><ol>
+<li>Servlet 3.1</li>
+</ol>
+<p>Java EE 7 XML schema，命名空间是 <a href="http://xmlns.jcp.org/xml/ns/javaee/" target="_blank" rel="noopener">http://xmlns.jcp.org/xml/ns/javaee/</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; 
+        xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+        version=&quot;3.1&quot;&gt;
+
+&lt;/web-app&gt;
+</code></pre><ol start="2">
+<li>Servlet 3.0</li>
+</ol>
+<p>Java EE 6 XML schema，命名空间是 <a href="http://java.sun.com/xml/ns/javaee" target="_blank" rel="noopener">http://java.sun.com/xml/ns/javaee</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;
+          version=&quot;3.0&quot;&gt;
+
+&lt;/web-app&gt;
+</code></pre><ol start="3">
+<li>Servlet 2.5</li>
+</ol>
+<p>Java EE 5 XML schema，命名空间是 <a href="http://java.sun.com/xml/ns/javaee" target="_blank" rel="noopener">http://java.sun.com/xml/ns/javaee</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;
+          version=&quot;2.5&quot;&gt;
+
+&lt;/web-app&gt;
+</code></pre><ol start="4">
+<li>Servlet 2.4</li>
+</ol>
+<p>Java EE 1.4 XML schema, 命名空间是 <a href="http://java.sun.com/xml/ns/j2ee" target="_blank" rel="noopener">http://java.sun.com/xml/ns/j2ee</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee
+          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;
+          version=&quot;2.4&quot;&gt;
+
+&lt;/web-app&gt;
+</code></pre><ol start="5">
+<li>Servlet 2.3</li>
+</ol>
+<p>Java EE 1.3 DTDs schema，这个版本的web.xml文件太老了，强烈建议升级</p>
+<pre><code>&lt;!DOCTYPE web-app PUBLIC
+ &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+ &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
+
+&lt;web-app&gt;
+  &lt;display-name&gt;Servlet 2.3 Web Application&lt;/display-name&gt;
+&lt;/web-app&gt;
+</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://blog.csdn.net/qq_34941558/article/details/77149609" target="_blank" rel="noopener">ContextPath被错误解析</a><br><a href="https://blog.csdn.net/qq_16313365/article/details/53783288" target="_blank" rel="noopener">web.xml版本升级</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/LeetCode-350/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/27/LeetCode-350/" itemprop="url">LeetCode-350</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T13:39:02+08:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这个题目和前一个题目相似度很大，并且用双指针法比前一题还少一个去重的步骤。代码如下：</p>
+<pre><code>class Solution {
 public:
     vector&lt;int&gt; intersect(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
-        vector&lt;int&gt;...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-27</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/LeetCode/" class="color4">LeetCode</a>
-      
-  </li>
+        vector&lt;int&gt; res;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        for(int i=0 , j=0;i &lt; nums1.size()&amp;&amp; j&lt;nums2.size();){
+            if(nums1[i] == nums2[j]){
+//                 if(mapping.find(nums1[i] == res.end())){     //说明res里还没有
+                    res.push_back(nums1[i]);
+                i++,j++;
+//                 }
+            } else if(nums1[i] &gt; nums2[j])
+                j++;
+            else
+                i++;
+        }
+        return res;
+    }
+};
+</code></pre><p><strong>执行用时 : 12 ms, 在Intersection of Two Arrays II的C++提交中击败了96.65% 的用户<br>内存消耗 : 8.9 MB, 在Intersection of Two Arrays II的C++提交中击败了82.06% 的用户</strong></p>
 
-        </ul>
+          
         
-            <a href="/2019/05/27/LeetCode-350/#more" class="article-more-link">more&gt;&gt;</a>
-        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
-</article>
-
-
   
-    <article id="post-LeetCode-349" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
+  </article>
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/27/LeetCode-349/">LeetCode-349</a>
-    </h1>
+      
+
   
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/LeetCode/">LeetCode</a>
-                  
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/LeetCode-349/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/27/LeetCode-349/" itemprop="url">LeetCode-349</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T13:16:56+08:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div class="article-img">
-            <a href="/2019/05/27/LeetCode-349/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="LeetCode-349" title="LeetCode-349">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                常规暴力解法：
-class Solution {
+      
+
+      
+        
+          
+            <p>常规暴力解法：</p>
+<pre><code>class Solution {
 public:
     vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
         map&lt;int,int&gt; mapping;
-        map&lt;int,in...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-27</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/LeetCode/" class="color4">LeetCode</a>
-      
-  </li>
+        map&lt;int,int&gt; res;
+        vector&lt;int&gt; ress;
+        for(int &amp; each:nums1){
+            mapping[each] = NULL;           //把nums1的数据全部存放到mapping里 
+        }    
+        for(int&amp; each : nums2){
+            if(mapping.count(each) != 0){
+                if(res.count(each)==0){
+                    res[each] == NULL;
+                    ress.push_back(each);
+                }
+            }
+        }
+    3    
+        return ress;
+    }
+};
+</code></pre><p><strong>执行用时 : 12 ms, 在Intersection of Two Arrays的C++提交中击败了96.75% 的用户<br>内存消耗 : 9.8 MB, 在Intersection of Two Arrays的C++提交中击败了7.54% 的用户</strong></p>
+<h2 id="排序双指针法"><a href="#排序双指针法" class="headerlink" title="排序双指针法:"></a>排序双指针法:</h2><h3 id="先讲一讲C-sort函数的用法"><a href="#先讲一讲C-sort函数的用法" class="headerlink" title="先讲一讲C++ sort函数的用法"></a>先讲一讲C++ sort函数的用法</h3><p>对vector排序</p>
+<pre><code>sort(nums1.begin(),nums1.end());
+</code></pre><p>对数组排序也是一样的用法，第一个参数为起始地址，第二个参数为最后一个元素的后一位的地址。</p>
+<p>因为sort实际上是不去第二个参数所表明的地址的值的，就和vector.end()所指向的也不是最后一个值而是最后一个值的后一个位置一样。</p>
+<h3 id="删除C-中vector的重复元素"><a href="#删除C-中vector的重复元素" class="headerlink" title="删除C++中vector的重复元素"></a>删除C++中vector的重复元素</h3><pre><code>res.erase(unique(res.begin(), res.end()), res.end());
+</code></pre><h3 id="排序双指针法-1"><a href="#排序双指针法-1" class="headerlink" title="排序双指针法"></a>排序双指针法</h3><pre><code>class Solution {
+public:
+    vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        vector&lt;int&gt; res;
+        for(int i=0,j=0;i&lt;nums1.size() &amp;&amp; j&lt;nums2.size();){
+            if(nums1[i] == nums2[j]){
+                res.push_back(nums1[i]);
+                i++;
+                j++;
+            } else if(nums1[i]&lt;nums2[j]){
+                i++;
+            }else
+                j++;
+        }
+        res.erase(unique(res.begin(), res.end()), res.end());
+        return res;
+    }
+};
+</code></pre><p><strong>执行用时 : 8 ms, 在Intersection of Two Arrays的C++提交中击败了99.49% 的用户<br>内存消耗 : 9.2 MB, 在Intersection of Two Arrays的C++提交中击败了65.37% 的用户</strong></p>
+<h2 id="LeetCode中大佬最牛逼的解法"><a href="#LeetCode中大佬最牛逼的解法" class="headerlink" title="LeetCode中大佬最牛逼的解法"></a>LeetCode中大佬最牛逼的解法</h2><pre><code>class Solution {
+public:
+    vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+        vector&lt;int&gt; res;
+        if(nums1.size() ==0 || nums2.size()==0)
+            return res;
 
-        </ul>
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+
+        int lastNum = -1;
+        for(int i=0,j=0;i&lt;nums1.size() &amp;&amp; j&lt;nums2.size();){
+            if(nums1[i] == nums2[j]){
+                if(lastNum !=nums1[i]){
+                    res.push_back(nums1[i]);
+                    lastNum = nums1[i];
+                }                
+                i++;
+            }
+            else if(nums1[i]&lt;nums2[j]){
+                i++;
+            }
+            else{
+                j++;
+            }            
+        }
+        return res;
+    }
+};
+</code></pre><p><a href="\2019\05\27\LeetCode-350\index.html">该题的进阶</a></p>
+
+          
         
-            <a href="/2019/05/27/LeetCode-349/#more" class="article-more-link">more&gt;&gt;</a>
-        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
-</article>
-
-
   
-    <article id="post-LeetCode-234" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
+  </article>
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/LeetCode-234/">LeetCode-234</a>
-    </h1>
+      
+
   
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/LeetCode/">LeetCode</a>
-                  
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-234/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/LeetCode-234/" itemprop="url">LeetCode-234</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:22+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div class="article-img">
-            <a href="/2019/05/25/LeetCode-234/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="LeetCode-234" title="LeetCode-234">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                留坑题目##不行的代码
-/**
+      
+
+      
+        
+          
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>##<br>不行的代码</p>
+<pre><code>/**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -492,357 +1347,905 @@ public:
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {...
-            </p>
-        </div>
-      
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        int res = 0;
+        int flag = 0;
+        ListNode * list = head;
+        int tmm = 0;
+        while(list != nullptr){
+            if(flag == 0)
+                res = res*10+ list-&gt;val;
+            else{
+                tmm = res%10;
+                res /= 10;
+                if(tmm != list-&gt;val){
+                    return false;
+                }
+                if(res == 0){
+                    return true;
+                }
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp;flag == 0){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        return false;
+    }
+};
+会卡在 [-129,129] 处，因为该算法都是按照链表元素为个数算的。
+</code></pre><p>错误实例2：</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        stack&lt;int&gt; stk;
+        int flag = 0;
+        ListNode * list = head;
+        while(list != nullptr){
+            //flag是0，表示还没遇到那个开始回文的地方。
+            if(flag == 0)
+                stk.push(list-&gt;val);
+            else{
+                if(stk.empty())
+                    return false;
+                int tmp = stk.top();
+                stk.pop();
+                if(tmp != list-&gt;val)
+                    return false;
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp; list-&gt;val == list-&gt;next-&gt;val){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        if(stk.empty())
+            return true;
+        return false;
+    }
+};
+会卡在[1,1,2,2,1,1]
+</code></pre><p>ok:</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode * node = head;
+        stack&lt;int&gt; stk1;
+        while(node != nullptr){
+            stk1.push(node-&gt;val);
+            node = node-&gt;next;
+        }
+        node = head;
+        while(node != nullptr){
+            if(stk1.top() != node-&gt;val)
+                return false;
+            stk1.pop();
+            node = node-&gt;next;
+        }
+        if(stk1.empty())
+            return true;
+        return false;
+    }
+};
+</code></pre>
+          
         
+      
     </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-25</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/LeetCode/" class="color4">LeetCode</a>
-      
-  </li>
+    
+    
+    
 
-        </ul>
-        
-            <a href="/2019/05/25/LeetCode-234/#more" class="article-more-link">more&gt;&gt;</a>
-        
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
-</article>
-
-
   
-    <article id="post-LeetCode-206" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
+  </article>
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/25/LeetCode-206/">LeetCode-206</a>
-    </h1>
+      
+
   
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/LeetCode/">LeetCode</a>
-                  
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-206/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/LeetCode-206/" itemprop="url">LeetCode-206</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:13+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/05/25/LeetCode-206/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="LeetCode-206" title="LeetCode-206">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                留坑
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-25</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/LeetCode/" class="color4">LeetCode</a>
-      
-  </li>
 
-        </ul>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-            <a href="/2019/05/25/LeetCode-206/#more" class="article-more-link">more&gt;&gt;</a>
+          
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1>
+          
         
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
-</article>
-
-
   
-    <article id="post-C-C-中指针在函数中传递的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+  
+  </article>
+
+
     
-      <header class="article-header">
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/C-C-中指针在函数中传递的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/24/C-C-中指针在函数中传递的问题/">C/C++中指针在函数中传递的问题</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/C-C-中指针在函数中传递的问题/" itemprop="url">C/C++中指针在函数中传递的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T07:02:21+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <div class="article-img">
-            <a href="/2019/05/24/C-C-中指针在函数中传递的问题/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="C/C++中指针在函数中传递的问题" title="C/C++中指针在函数中传递的问题">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                正常的地址传递众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。
-#include &lt;iostream&gt;
+      
+
+      
+        
+          
+            <h2 id="正常的地址传递"><a href="#正常的地址传递" class="headerlink" title="正常的地址传递"></a>正常的地址传递</h2><p>众所周知，如果只通过普通的方式进行函数间传递的话是简单的值传递，无法在被调函数内修改参数的大小，但是如果用指针进行地址传递就可以修改，下面是一个简单的例子。</p>
+<pre><code>#include &lt;iostream&gt;
 using namespace std;
 void add(int *p);
 int main(){
     int p;
-    add(&amp;...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-24</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/C/C++/" class="color1">C/C++</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2019/05/24/C-C-中指针在函数中传递的问题/#more" class="article-more-link">more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-UnityInterface" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/24/UnityInterface/">C/C++中指针在函数中传递的问题</a>
-    </h1>
-  
+    add(&amp;p);
+    cout &lt;&lt; p;
+    return 0;
+}
+void add(int *p){
+    int in;
+    cin &gt;&gt; in;
+    *p = in;
+}
+输出结果为8.
+</code></pre><h2 id="指针的值传递"><a href="#指针的值传递" class="headerlink" title="指针的值传递"></a>指针的值传递</h2><p>如果上方的程序改成这个样子，程序会没有输出（因为空指针）。</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+void add(int *p);
+int main(){
+    int *p;
+    add(p);
+    cout &lt;&lt; *p;
+    return 0;
+}
+void add(int *p){
+    int in;
+    cin &gt;&gt; in;
+    *p = in;
+}
+</code></pre><p>因为这个样子进行传递的话就相当于把指针进行了参数传递！！！<br>传递的不是指针的地址，而是指针的值，这就相当于是在函数之间进行值传递了，main函数里当然看不到add函数里给P指向的值。</p>
 
           
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2019/05/24/UnityInterface/">
-                
-                <img src="http://yoursite.com/images/banner.jpg" alt="C/C++中指针在函数中传递的问题" title="C/C++中指针在函数中传递的问题">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Unity界面操作
-Unity的 Project对应的是 项目文件夹-&gt;Assets 文件夹
-Unity的Assets中存放游戏资源，Hierarchy是优秀对象，只有对象才能在Scene中显示，将Assets的model拖到Hierarchy中即可生成对象。
-左手系：和右手系的Z轴方向相反。
-在Hierarchy处右键可以快速建立一些简单的3d对象，如Cube之类...
-            </p>
-        </div>
-      
         
+      
     </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-05-24</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/C/C++/" class="color1">C/C++</a>
-      
-  </li>
+    
+    
+    
 
-        </ul>
-        
-            <a href="/2019/05/24/UnityInterface/#more" class="article-more-link">more&gt;&gt;</a>
-        
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
-</article>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/UnityInterface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/UnityInterface/" itemprop="url">C/C++中指针在函数中传递的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T07:02:21+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Unity界面操作"><a href="#Unity界面操作" class="headerlink" title="Unity界面操作"></a>Unity界面操作</h2><ul>
+<li>Unity的 Project对应的是 项目文件夹-&gt;Assets 文件夹</li>
+<li>Unity的Assets中存放游戏资源，Hierarchy是优秀对象，只有对象才能在Scene中显示，将Assets的model拖到Hierarchy中即可生成对象。</li>
+<li>左手系：和右手系的Z轴方向相反。</li>
+<li>在Hierarchy处右键可以<strong>快速建立</strong>一些简单的3d对象，如Cube之类。</li>
+<li>让两个物体无缝的贴在一起，利用<strong>顶点吸附</strong>，随便选择一个物体，在键盘上按住V，晃动鼠标可以选择顶点，选择一个顶点之后按住鼠标左键，往另一个物体上贴。</li>
+<li>选中多个物体可以<strong>直接拖动多个物体</strong>，但是选中多个物体的直接更改坐标的话会造成选中的物体中心重叠在一起，之前的结构会被打乱。</li>
+</ul>
+<h3 id="Scene界面操作"><a href="#Scene界面操作" class="headerlink" title="Scene界面操作"></a>Scene界面操作</h3><ul>
+<li>按住右键拖动鼠标旋转当前视角</li>
+<li>鼠标滚轮滑动，改变缩放级别</li>
+<li>按住鼠标滚轮，拖动场景</li>
+<li>选中任意一个物体，按F键，就是让该物体显示在屏幕中间，<strong>居中</strong></li>
+<li>对物体居中之后，按住Alt键加鼠标左键拖动，可以<strong>围绕物体旋转</strong></li>
+<li>按住Alt键+鼠标右键，让物体进行<strong>放大或者缩小</strong></li>
+<li>按住鼠标右键，同时按键盘上的WSAD QE，可以进行<strong>场景漫游</strong>，类似CS中的自由视角</li>
+<li>左上角两个按钮，第一个是拖动场景，第二个拖动物体</li>
+<li>左上角五个按钮，<strong>快捷键对应qwert</strong></li>
+</ul>
+<h3 id="Inspector面板"><a href="#Inspector面板" class="headerlink" title="Inspector面板"></a>Inspector面板</h3><p>检视面板：</p>
+<ol>
+<li>显示当前选中<strong>对象</strong>所附件的<strong>组件</strong>及其<strong>属性信息</strong></li>
+<li>为重要的对象选择<strong>图标</strong></li>
+</ol>
+<p>每个对象都有一个组件叫做Transform，三个属性，位置、旋转、缩放。</p>
+<ul>
+<li>位置就是对应其在X，Y，Z上的点，需要注意的是Unity里的坐标轴是左手系。通常默认对象一开始面朝的方向是Z轴。</li>
+<li>对应的轴垂直的有一个不同颜色的面，按住那个面拖动可以<strong>让该物体在对应的面上移动</strong>。</li>
+<li>旋转对也是对应X,Y,Z轴，改轴对应上的数值就是<strong>沿该轴旋转</strong>，相当于人物朝向。</li>
+<li>描述：当前物体沿X轴旋转了45度。</li>
+<li>左上角的第三个按钮可以快速的旋转物体。</li>
+<li>第三个属性是缩放比例，可以点击对应的轴更改，也可在左上角的第四个按钮来更改。</li>
+</ul>
+<h3 id="变换切换"><a href="#变换切换" class="headerlink" title="变换切换"></a>变换切换</h3><p>在2by3的Scene面板上，有Center和Local两个按钮。<br><img src="/2019/05/24/UnityInterface/变换切换1.jpg" alt="图片1"></p>
+<ul>
+<li>Center：切换物体的<strong>轴心点</strong>，Center就是物体的中心，Pivot就是美工建模时的中心点，在进行缩放或者旋转时效果不一样。这个按钮只有在Scene面板有用，改数据的话轴心点在哪无影响。</li>
+<li>Local：物体的自身坐标轴和全局坐标轴，可以很清楚的看清楚<strong>物体的朝向</strong>。</li>
+</ul>
+<h3 id="播放控件"><a href="#播放控件" class="headerlink" title="播放控件"></a>播放控件</h3><p>有预览、暂停、逐帧播放， 三个选项</p>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
+<li>ISO：正交观察模式（变成<strong>平面</strong>观察）</li>
+<li>Persp：透视观察模式（近大远小，<strong>3D视角</strong>）</li>
+<li>视图角度：上下前后左右</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yatogami</p>
+              <p class="site-description motion-element" itemprop="description">记录程序员成长点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yatogami</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
 
 
   
 
 
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/"><< Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next >></a>
-  </nav>
-</section>
-        
-      </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style="display:none">
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style="display:none">
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2019 闫奎滈<br>
-      </p>
-    </div>
-  </div>
-</footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
 <script>
-  var mihoConfig = {
-      root: "http://yoursite.com",
-      animate: true,
-      isHome: true,
-      share: true,
-      reward: 1
-  }
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/LeetCode/">LeetCode</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Programing-Skill/" style="font-size: 10px;">Programing Skill</a>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/LeetCode/" style="font-size: 20px;">LeetCode</a> <a href="/tags/Programing-Skill/" style="font-size: 10px;">Programing Skill</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-<script src="/js/search.js"></script>
-<script src="/js/main.js"></script>
 
 
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
-  <script src="/js/particles.js"></script>
+  
+  
 
+  
 
+  
 
+  
 
-
-
-
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  <script src="/js/animate.js"></script>
-
-
-  </div>
 </body>
 </html>
