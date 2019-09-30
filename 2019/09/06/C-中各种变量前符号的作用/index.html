@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C++,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="&amp;amp; 学名：引用。 引用必须被初始化。 int ival = 1024; int %refval = ival; //refVal指向ival(是ival的另一个名字)  int &amp;amp; refVal2;      //报错，引用必须被初始化 int &amp;amp;ref = 10;      //错误，引用的值必须是一个对象。  一旦初始化完成，引用将和他的初始化对象一直绑定在一起。无法令">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中各种变量前符号的作用">
 <meta property="og:url" content="http://yoursite.com/2019/09/06/C-中各种变量前符号的作用/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
 <meta property="og:description" content="&amp;amp; 学名：引用。 引用必须被初始化。 int ival = 1024; int %refval = ival; //refVal指向ival(是ival的另一个名字)  int &amp;amp; refVal2;      //报错，引用必须被初始化 int &amp;amp;ref = 10;      //错误，引用的值必须是一个对象。  一旦初始化完成，引用将和他的初始化对象一直绑定在一起。无法令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-06T01:25:40.298Z">
+<meta property="og:updated_time" content="2019-09-30T01:26:58.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++中各种变量前符号的作用">
 <meta name="twitter:description" content="&amp;amp; 学名：引用。 引用必须被初始化。 int ival = 1024; int %refval = ival; //refVal指向ival(是ival的另一个名字)  int &amp;amp; refVal2;      //报错，引用必须被初始化 int &amp;amp;ref = 10;      //错误，引用的值必须是一个对象。  一旦初始化完成，引用将和他的初始化对象一直绑定在一起。无法令">
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -329,7 +352,7 @@
       
 
       
-        <h2 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h2><ul>
+        <h1 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h1><ul>
 <li>学名：引用。</li>
 <li><p>引用必须被初始化。</p>
 <pre><code>int ival = 1024;
@@ -341,7 +364,15 @@ int &amp;ref = 10;      //错误，引用的值必须是一个对象。
 <li>引用本身不是对象，不能定义引用的引用。</li>
 <li>引用的值和对象本身的值是<strong>同步变化</strong>的。</li>
 </ul>
-<h2 id><a href="#" class="headerlink" title="*"></a>*</h2><ul>
+<h2 id="作为参数时"><a href="#作为参数时" class="headerlink" title="作为参数时"></a>作为参数时</h2><p>函数的参数有引用时，可以直接通过函数内部操作来改变这个变量的值，函数调用本身<strong>不需要任何操作</strong>，只需要在函数本体上加上’&amp;’。<br>例如:</p>
+<pre><code>void swap(int &amp;x1,int &amp;x2){
+int tmp = x1^x2;
+x1 = x1 ^ tmp;
+x2 = x2 ^ tmp;
+}
+int x1=10,x2=5; //声明、调用，不需要任何操作，也不用取地址。
+swap(x1,x2);    //即可满足要求
+</code></pre><h1 id><a href="#" class="headerlink" title="*"></a>*</h1><ul>
 <li>学名：指针。</li>
 <li>指针存放某个对象的地址，获取地址需要用到取地址符，’&amp;’。</li>
 <li><p>指针访问一个对象需要用解引用符’*’。</p>
@@ -365,6 +396,12 @@ cout &lt;&lt; *p ;
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
       
 
       
@@ -475,7 +512,7 @@ cout &lt;&lt; *p ;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -486,7 +523,7 @@ cout &lt;&lt; *p ;
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -519,7 +556,7 @@ cout &lt;&lt; *p ;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#amp"><span class="nav-number">1.</span> <span class="nav-text">&amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">*</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#amp"><span class="nav-number">1.</span> <span class="nav-text">&amp;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作为参数时"><span class="nav-number">1.1.</span> <span class="nav-text">作为参数时</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">*</span></a></li></ol></div>
             
 
           </div>

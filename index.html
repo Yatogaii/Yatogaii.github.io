@@ -1861,6 +1861,28 @@ public:
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1890,7 +1912,7 @@ public:
       
         
           
-            <h2 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h2><ul>
+            <h1 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h1><ul>
 <li>学名：引用。</li>
 <li><p>引用必须被初始化。</p>
 <pre><code>int ival = 1024;
@@ -1902,7 +1924,15 @@ int &amp;ref = 10;      //错误，引用的值必须是一个对象。
 <li>引用本身不是对象，不能定义引用的引用。</li>
 <li>引用的值和对象本身的值是<strong>同步变化</strong>的。</li>
 </ul>
-<h2 id><a href="#" class="headerlink" title="*"></a>*</h2><ul>
+<h2 id="作为参数时"><a href="#作为参数时" class="headerlink" title="作为参数时"></a>作为参数时</h2><p>函数的参数有引用时，可以直接通过函数内部操作来改变这个变量的值，函数调用本身<strong>不需要任何操作</strong>，只需要在函数本体上加上’&amp;’。<br>例如:</p>
+<pre><code>void swap(int &amp;x1,int &amp;x2){
+int tmp = x1^x2;
+x1 = x1 ^ tmp;
+x2 = x2 ^ tmp;
+}
+int x1=10,x2=5; //声明、调用，不需要任何操作，也不用取地址。
+swap(x1,x2);    //即可满足要求
+</code></pre><h1 id><a href="#" class="headerlink" title="*"></a>*</h1><ul>
 <li>学名：指针。</li>
 <li>指针存放某个对象的地址，获取地址需要用到取地址符，’&amp;’。</li>
 <li><p>指针访问一个对象需要用解引用符’*’。</p>
@@ -2008,7 +2038,7 @@ cout &lt;&lt; *p ;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2019,7 +2049,7 @@ cout &lt;&lt; *p ;
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
