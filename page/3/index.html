@@ -262,6 +262,261 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-234/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/LeetCode-234/" itemprop="url">LeetCode-234</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:22+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>##<br>不行的代码</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        int res = 0;
+        int flag = 0;
+        ListNode * list = head;
+        int tmm = 0;
+        while(list != nullptr){
+            if(flag == 0)
+                res = res*10+ list-&gt;val;
+            else{
+                tmm = res%10;
+                res /= 10;
+                if(tmm != list-&gt;val){
+                    return false;
+                }
+                if(res == 0){
+                    return true;
+                }
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp;flag == 0){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        return false;
+    }
+};
+会卡在 [-129,129] 处，因为该算法都是按照链表元素为个数算的。
+</code></pre><p>错误实例2：</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        stack&lt;int&gt; stk;
+        int flag = 0;
+        ListNode * list = head;
+        while(list != nullptr){
+            //flag是0，表示还没遇到那个开始回文的地方。
+            if(flag == 0)
+                stk.push(list-&gt;val);
+            else{
+                if(stk.empty())
+                    return false;
+                int tmp = stk.top();
+                stk.pop();
+                if(tmp != list-&gt;val)
+                    return false;
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp; list-&gt;val == list-&gt;next-&gt;val){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        if(stk.empty())
+            return true;
+        return false;
+    }
+};
+会卡在[1,1,2,2,1,1]
+</code></pre><p>ok:</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode * node = head;
+        stack&lt;int&gt; stk1;
+        while(node != nullptr){
+            stk1.push(node-&gt;val);
+            node = node-&gt;next;
+        }
+        node = head;
+        while(node != nullptr){
+            if(stk1.top() != node-&gt;val)
+                return false;
+            stk1.pop();
+            node = node-&gt;next;
+        }
+        if(stk1.empty())
+            return true;
+        return false;
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-206/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1347,7 +1602,7 @@ int messageThread() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
