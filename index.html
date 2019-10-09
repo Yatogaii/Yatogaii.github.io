@@ -266,6 +266,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/复盘-2019-10-09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/09/复盘-2019-10-09/" itemprop="url">复盘-2019/10/09</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T21:46:28+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">复盘</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">每日复盘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="今天学到的知识"><a href="#今天学到的知识" class="headerlink" title="今天学到的知识"></a>今天学到的知识</h1><h2 id="浮点数的表示方法"><a href="#浮点数的表示方法" class="headerlink" title="浮点数的表示方法"></a>浮点数的表示方法</h2><p>$$<br>    F=M*R^E<br>$$<br>其中：</p>
+<ul>
+<li>F为浮点数</li>
+<li>M为尾数（可正可负）</li>
+<li>R为基数，可取2、4、8或16等</li>
+<li>E为阶码（可正可负），用二进制表示，+1表示尾数右移一位，-1表示尾数左移一位，常用来表示规格化。</li>
+</ul>
+<p>规格化浮点数：<br>$$<br>    0.5&lt;|M|&lt;1<br>$$<br>利用阶码（二进制）的+1、-1来改变尾数的小数点的位置来达到规格化浮点数的效果。</p>
+<h2 id="Java中Socket获取输入输出流的小坑"><a href="#Java中Socket获取输入输出流的小坑" class="headerlink" title="Java中Socket获取输入输出流的小坑"></a>Java中Socket获取输入输出流的小坑</h2><p>如果一个InputStream是通过这个方式获得的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InputStream is = socket.getInputStream();</span><br></pre></td></tr></table></figure></p>
+<p>那么如果调用<code>is.close()</code>方法，其<strong>根Socket</strong>也会被同时关闭。<br></p>
+<h2 id="平衡查找树AVL"><a href="#平衡查找树AVL" class="headerlink" title="平衡查找树AVL"></a>平衡查找树AVL</h2><ul>
+<li>平衡条件：每个节点的左右子树的最大深度<strong>相差不超过1</strong>。</li>
+<li>平衡方法：<ul>
+<li>单旋转</li>
+<li>双旋转</li>
+</ul>
+</li>
+</ul>
+<h2 id="高频中抽头两端的电导等效"><a href="#高频中抽头两端的电导等效" class="headerlink" title="高频中抽头两端的电导等效"></a>高频中抽头两端的电导等效</h2><p>利用电感的攻略相同来算，即<br>$$<br>    U_1^2y_1^2=U_2^2y_2^2<br>$$<br>由此得出等效前后电导与$p=\frac{N_1}{N}$的关系。</p>
+<h1 id="今天做的事情"><a href="#今天做的事情" class="headerlink" title="今天做的事情"></a>今天做的事情</h1><ul>
+<li>总感觉今天是一事无成的一天，甚至连作业都没有做完。</li>
+<li>看了一会二叉树和avl树。</li>
+</ul>
+<h1 id="今天想要做但是没有做的事情"><a href="#今天想要做但是没有做的事情" class="headerlink" title="今天想要做但是没有做的事情"></a>今天想要做但是没有做的事情</h1><ul>
+<li>复习高数竞赛</li>
+<li>复习计算机专业课</li>
+<li>英语流利说的测试</li>
+<li>Leetcode没做</li>
+</ul>
+<h1 id="今日感触"><a href="#今日感触" class="headerlink" title="今日感触"></a>今日感触</h1><ul>
+<li>今天从1505最后一排的左边第二个搬到了左边第一个，顺便收拾了下东西，感觉整理杂物是真的可以为整个人带来改变。</li>
+<li>晚上吃了鸡胸肉，但是没忍住又去了食堂，甚至还想去吃火锅，需要忍住自己的欲望才行，否则一定会非常后悔。</li>
+</ul>
+<h1 id="明日期望"><a href="#明日期望" class="headerlink" title="明日期望"></a>明日期望</h1><ul>
+<li>复习<strong>高数竞赛</strong></li>
+<li>测试<strong>英语口语</strong></li>
+<li>刷PAT的题</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/LeetCode-559/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,8 +573,14 @@
 <h2 id="第一次解题"><a href="#第一次解题" class="headerlink" title="第一次解题"></a>第一次解题</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>因为常常用递归的方式来遍历树这种数据结构，在这道题里面第一次我也选择了使用递归，并且新建了一个类变量max来存放最大深度，没遍历到一个NULL就比较一次当前深度和max，最终返回max即为最大的深度。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        traverse(root,cnt);</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">traverse</span><span class="params">(Node* root,<span class="keyword">int</span> cnt)</span></span>&#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;children.size() == <span class="number">0</span>)&#123; <span class="comment">//说明他没有子节点了</span></span><br><span class="line">            <span class="keyword">if</span>(cnt &gt; max)</span><br><span class="line">                max = cnt;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> node : root-&gt;children)&#123;</span><br><span class="line">            traverse(node,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><h2 id="改进方案"><a href="#改进方案" class="headerlink" title="改进方案"></a>改进方案</h2><h2 id="改进后的解题"><a href="#改进后的解题" class="headerlink" title="改进后的解题"></a>改进后的解题</h2><h2 id="一开始的失败代码"><a href="#一开始的失败代码" class="headerlink" title="一开始的失败代码"></a>一开始的失败代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> each : root-&gt;children)&#123;</span><br><span class="line">            cnt = max(cnt,maxDepth(each));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="成功的代码"><a href="#成功的代码" class="headerlink" title="成功的代码"></a>成功的代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">N叉树的最大深度</span><br><span class="line">提交记录</span><br><span class="line"><span class="number">36</span> / <span class="number">36</span> 个通过测试用例</span><br><span class="line">	状态：通过</span><br><span class="line">执行用时：<span class="number">204</span> ms</span><br><span class="line">	</span><br><span class="line">提交时间：<span class="number">19</span> 小时，<span class="number">49</span> 分钟之前</span><br><span class="line">执行用时分布图表</span><br><span class="line"><span class="number">134.0</span></span><br><span class="line"><span class="number">135.0</span></span><br><span class="line"><span class="number">136.0</span></span><br><span class="line"><span class="number">137.0</span></span><br><span class="line"><span class="number">138.0</span></span><br><span class="line"><span class="number">139.0</span></span><br><span class="line"><span class="number">140.0</span></span><br><span class="line"><span class="number">141.0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">	cpp</span><br><span class="line">Runtime (ms)</span><br><span class="line">Distribution (%)</span><br><span class="line"></span><br><span class="line"><span class="number">150</span></span><br><span class="line"><span class="number">175</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line"><span class="number">225</span></span><br><span class="line"><span class="number">250</span></span><br><span class="line"><span class="number">275</span></span><br><span class="line"><span class="number">300</span></span><br><span class="line"><span class="number">325</span></span><br><span class="line"><span class="number">350</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">在此图表上拖选来放大显示该区域</span><br><span class="line"></span><br><span class="line">邀请好友来挑战 N叉树的最大深度</span><br><span class="line">提交的代码：<span class="number">19</span> 小时，<span class="number">49</span> 分钟之前</span><br><span class="line">语言：cpp</span><br><span class="line"></span><br><span class="line">返回该题</span><br><span class="line">执行用时为 <span class="number">140</span> ms 的范例</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(Node *it :root-&gt;children)</span><br><span class="line">            m=max(m,maxDepth(it));</span><br><span class="line">        <span class="keyword">return</span> ++m; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="总结失败原因"><a href="#总结失败原因" class="headerlink" title="总结失败原因"></a>总结失败原因</h3><h2 id="学到了什么"><a href="#学到了什么" class="headerlink" title="学到了什么"></a>学到了什么</h2>
+<h3 id="成功的代码"><a href="#成功的代码" class="headerlink" title="成功的代码"></a>成功的代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int val;</span></span><br><span class="line"><span class="comment">    vector&lt;Node*&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Node(int _val, vector&lt;Node*&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(Node *it :root-&gt;children)</span><br><span class="line">            m=max(m,maxDepth(it));</span><br><span class="line">        <span class="keyword">return</span> ++m; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="总结失败原因"><a href="#总结失败原因" class="headerlink" title="总结失败原因"></a>总结失败原因</h3><p>将<code>return cnt++</code>改为<code>return ++cnt</code>即可</p>
+<h2 id="学到了什么"><a href="#学到了什么" class="headerlink" title="学到了什么"></a>学到了什么</h2><ul>
+<li>没想到在return中的<code>++cnt</code>和<code>cnt++</code>还有区别。</li>
+<li>在做算法题时，能用循环尽量用循环，递归时间复杂度更高。</li>
+<li>在for循环中使用<code>val=max(val,func())</code>来代替递归获取最大值不失为一个很不错的方法。</li>
+</ul>
+
           
         
       
@@ -1801,238 +1997,11 @@ public:
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/爬取漫画岛开发日记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/26/爬取漫画岛开发日记/" itemprop="url">爬取漫画岛开发日记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T11:24:43+08:00">
-                2019-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>全部代码，只需要在实例化对象时传入先要下载那一话的url即可。</p>
-<pre><code>import base64
-import os
-from Crypto.Cipher import AES
-import requests
-import re
-class ManHuaDui:
-    #第一话的网址和一共的话数
-    fitstUrl = r&apos;&apos;
-    #域名
-    domain = r&apos;https://mhcdn.manhuazj.com&apos;
-    #加密后的数据
-    chapterImages = &apos;&apos;
-    #文件路径
-    path = &apos;&apos;
-    #文件名称
-    name = &apos;&apos;
-
-    #构造函数
-    def __init__(self,path,):
-        self.fitstUrl = path
-
-    #获取Html数据
-    def getHtml(self):
-        response = requests.get(self.fitstUrl)
-        if response.status_code == 200:
-            return response.text
-        raise Exception
-        #先获取第一话的试试
-        pass
-
-    #解析html获得密文和路径等数据
-    &apos;&apos;&apos;
-    @操作了chapterImages、Path、Name三个类变量
-    &apos;&apos;&apos;
-    def parseHtml(self):
-        text = self.getHtml()
-        #三个正则表达式
-        reImages = &apos;chapterImages = &quot;[^&quot;]*&quot;&apos;
-        rePath = &apos;chapterPath = &quot;[^&quot;]*&quot;&apos;
-        reName = &apos;pageTitle = &quot;[^&quot;]*&quot;&apos;
-        #进行匹配
-        images = re.findall(reImages,text)[0]
-        path = re.search(rePath,text).group(0)
-        name = re.findall(reName,text)[0]
-        #对匹配结果进行切片处理
-        lockData = images[len(&apos;chapterImages = &quot;&apos;):-1]
-        self.path = path[len(&apos;chapterPath = &quot;&apos;):-1]
-        self.name = name[len(&apos;pageTitle = &quot;&apos;):-1]
-        print(lockData)
-        print(self.path)
-        print(self.name)
-        self.chapterImages = self.str2list(self.decryption(lockData))
-        print(self.chapterImages)
-
-    #对数据进行解密
-    def decryption(self,data):
-        # aes算法加密的密钥，加密模式为CBC，偏移量为Pks7
-        key = &apos;123456781234567G&apos;
-        iv = &apos;ABCDEF1G34123412&apos;
-        mode = AES.MODE_CBC
-        #初始化解密器
-        cryptos = AES.new(key.encode(&apos;utf8&apos;), mode, iv.encode(&apos;utf8&apos;))
-        # 优先逆向解密base64成bytes
-        data = data.encode(&apos;utf8&apos;)
-        base64_decrypted = base64.decodebytes(data)
-        # 执行解密密并转码返回str
-        decrypted_text = str(cryptos.decrypt(base64_decrypted), encoding=&apos;utf-8&apos;).replace(&apos;\0&apos;, &apos;&apos;)
-        print(decrypted_text)
-        return decrypted_text
-
-    def str2list(self, str) -&gt; list:
-        res = str[1:-2].split(&apos;,&apos;)  #一定要是1:-2，因为原始字符串最后有一个空格，python的截取是不包括最后一个字符的
-        for i in range(0,len(res)):
-            res[i] = res[i].strip(&apos;&quot;&apos;)
-        res[-1] = res[-1].strip(&apos;&quot;&apos;)
-        return res
-
-    #下载图片
-    def download(self):
-        cnt = 1
-        print(&apos;该话共有：{}&apos;.format(len(self.chapterImages)))
-        for name in self.chapterImages:
-            path = self.domain + &apos;/&apos; + self.path + name
-            self.download_signle(path, cnt)
-            cnt = cnt + 1
-        pass
-
-    def download_signle(self,url, cnt):
-        direct = r&apos;F:\Commic&apos;
-        localPath = direct+ &apos;\\&apos;+ self.name
-        if not os.path.exists(localPath):
-            os.makedirs(localPath)
-        with open(localPath+r&apos;\{name}.jpg&apos;.format(name=cnt), &apos;wb+&apos;) as f:
-            response = requests.get(url)
-            while not response.status_code == 200 :
-                response = requests.get(url)
-            f.write(response.content)
-            f.close()
-</code></pre><p>涉及到的知识点：</p>
-<ul>
-<li>AES解密</li>
-<li>正则表达式</li>
-<li>新建文件夹</li>
-<li>request下载图片</li>
-<li>字符串转为列表</li>
-<li>拼接字符串获取下载链接</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2078,7 +2047,7 @@ class ManHuaDui:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2089,7 +2058,7 @@ class ManHuaDui:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
