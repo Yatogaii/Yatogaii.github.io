@@ -263,6 +263,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/UnityInterface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/UnityInterface/" itemprop="url">C/C++中指针在函数中传递的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T07:02:21+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Unity界面操作"><a href="#Unity界面操作" class="headerlink" title="Unity界面操作"></a>Unity界面操作</h2><ul>
+<li>Unity的 Project对应的是 项目文件夹-&gt;Assets 文件夹</li>
+<li>Unity的Assets中存放游戏资源，Hierarchy是优秀对象，只有对象才能在Scene中显示，将Assets的model拖到Hierarchy中即可生成对象。</li>
+<li>左手系：和右手系的Z轴方向相反。</li>
+<li>在Hierarchy处右键可以<strong>快速建立</strong>一些简单的3d对象，如Cube之类。</li>
+<li>让两个物体无缝的贴在一起，利用<strong>顶点吸附</strong>，随便选择一个物体，在键盘上按住V，晃动鼠标可以选择顶点，选择一个顶点之后按住鼠标左键，往另一个物体上贴。</li>
+<li>选中多个物体可以<strong>直接拖动多个物体</strong>，但是选中多个物体的直接更改坐标的话会造成选中的物体中心重叠在一起，之前的结构会被打乱。</li>
+</ul>
+<h3 id="Scene界面操作"><a href="#Scene界面操作" class="headerlink" title="Scene界面操作"></a>Scene界面操作</h3><ul>
+<li>按住右键拖动鼠标旋转当前视角</li>
+<li>鼠标滚轮滑动，改变缩放级别</li>
+<li>按住鼠标滚轮，拖动场景</li>
+<li>选中任意一个物体，按F键，就是让该物体显示在屏幕中间，<strong>居中</strong></li>
+<li>对物体居中之后，按住Alt键加鼠标左键拖动，可以<strong>围绕物体旋转</strong></li>
+<li>按住Alt键+鼠标右键，让物体进行<strong>放大或者缩小</strong></li>
+<li>按住鼠标右键，同时按键盘上的WSAD QE，可以进行<strong>场景漫游</strong>，类似CS中的自由视角</li>
+<li>左上角两个按钮，第一个是拖动场景，第二个拖动物体</li>
+<li>左上角五个按钮，<strong>快捷键对应qwert</strong></li>
+</ul>
+<h3 id="Inspector面板"><a href="#Inspector面板" class="headerlink" title="Inspector面板"></a>Inspector面板</h3><p>检视面板：</p>
+<ol>
+<li>显示当前选中<strong>对象</strong>所附件的<strong>组件</strong>及其<strong>属性信息</strong></li>
+<li>为重要的对象选择<strong>图标</strong></li>
+</ol>
+<p>每个对象都有一个组件叫做Transform，三个属性，位置、旋转、缩放。</p>
+<ul>
+<li>位置就是对应其在X，Y，Z上的点，需要注意的是Unity里的坐标轴是左手系。通常默认对象一开始面朝的方向是Z轴。</li>
+<li>对应的轴垂直的有一个不同颜色的面，按住那个面拖动可以<strong>让该物体在对应的面上移动</strong>。</li>
+<li>旋转对也是对应X,Y,Z轴，改轴对应上的数值就是<strong>沿该轴旋转</strong>，相当于人物朝向。</li>
+<li>描述：当前物体沿X轴旋转了45度。</li>
+<li>左上角的第三个按钮可以快速的旋转物体。</li>
+<li>第三个属性是缩放比例，可以点击对应的轴更改，也可在左上角的第四个按钮来更改。</li>
+</ul>
+<h3 id="变换切换"><a href="#变换切换" class="headerlink" title="变换切换"></a>变换切换</h3><p>在2by3的Scene面板上，有Center和Local两个按钮。<br><img src="/2019/05/24/UnityInterface/变换切换1.jpg" alt="图片1"></p>
+<ul>
+<li>Center：切换物体的<strong>轴心点</strong>，Center就是物体的中心，Pivot就是美工建模时的中心点，在进行缩放或者旋转时效果不一样。这个按钮只有在Scene面板有用，改数据的话轴心点在哪无影响。</li>
+<li>Local：物体的自身坐标轴和全局坐标轴，可以很清楚的看清楚<strong>物体的朝向</strong>。</li>
+</ul>
+<h3 id="播放控件"><a href="#播放控件" class="headerlink" title="播放控件"></a>播放控件</h3><p>有预览、暂停、逐帧播放， 三个选项</p>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
+<li>ISO：正交观察模式（变成<strong>平面</strong>观察）</li>
+<li>Persp：透视观察模式（近大远小，<strong>3D视角</strong>）</li>
+<li>视图角度：上下前后左右</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/Java-通过URL来调用WebAPI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -893,7 +1056,7 @@ int messageThread() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

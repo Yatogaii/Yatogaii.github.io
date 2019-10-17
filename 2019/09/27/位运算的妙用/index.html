@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
 <meta property="og:description" content="位运算原理计算机是利用二进制来存储数据的，使用位运算往往会有更高的效率。 常用操作符   符号 操作     &amp;lt;&amp;lt; 左移   &amp;gt;&amp;gt; 右移   ~ 取反   \  按位或   &amp;amp; 按位与   ^ 按位异或    实际应用利用异或实现两个数的交换通常利用中间变量来实现交换两个数，如下 int tmp = a; a = b; b = a; 如果使用异或，也可以对整数进行交">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-27T01:26:57.702Z">
+<meta property="og:updated_time" content="2019-10-17T13:49:19.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算的妙用">
 <meta name="twitter:description" content="位运算原理计算机是利用二进制来存储数据的，使用位运算往往会有更高的效率。 常用操作符   符号 操作     &amp;lt;&amp;lt; 左移   &amp;gt;&amp;gt; 右移   ~ 取反   \  按位或   &amp;amp; 按位与   ^ 按位异或    实际应用利用异或实现两个数的交换通常利用中间变量来实现交换两个数，如下 int tmp = a; a = b; b = a; 如果使用异或，也可以对整数进行交">
@@ -379,7 +379,11 @@ b = tmp ^ b;
 a = a ^ b;
 b = a ^ b;
 a = a ^ b;
-</code></pre><p>原理分析：<br><em>挖坑</em></p>
+</code></pre><p>原理分析：</p>
+<ol>
+<li>所有数与自己本身异或，其<strong>结果恒为0</strong>。</li>
+<li>任何数和0异或，其结果恒为<strong>其本身</strong>。</li>
+</ol>
 <p>陷阱：</p>
 <p>当用异或法交换两个相同的数时，得到的最终结果是<strong>两个数都为0</strong>，所以需要进行<strong>是否相同</strong>的判断。</p>
 
@@ -501,7 +505,7 @@ a = a ^ b;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
