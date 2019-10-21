@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习笔记,Go,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="常见问题 Q:Go的源码必须在GOPATH目录下才能进行开发吗？ A:确实是，但是在一些IDE下创建项目时，即使项目目录不在环境变量的GOPATH下，IDE也会自动为新建的项目创建一个GOPATH，从而保证程序能够正常编译。">
-<meta name="keywords" content="学习笔记,Go">
+<meta name="description" content="今日所得 写完了单片机作业 了解了什么是基线预测，对ARIMA有了进一步的认识。 1、首先将数据按照一定的方法转换为监督学习数据。 2、其次构建一个数据间的对应函数关系，也叫做数据的持久化。这种映射关系的构建往往是基于我们的经验或者对数据的预处理。 3、然后使用训练数据对模型进行训练，得到一个预测模型。再用这个模型对未来数据进行预测。 4、最后将预测值和真实值进行残差比较，得出预测值和真实值之间的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言学笔记-1、风格和结构">
-<meta property="og:url" content="http://yoursite.com/2019/10/16/Go语言学笔记-1、风格和结构/index.html">
+<meta property="og:title" content="每日复盘-2019&#x2F;10&#x2F;21">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/每日复盘-2019-10-21/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
-<meta property="og:description" content="常见问题 Q:Go的源码必须在GOPATH目录下才能进行开发吗？ A:确实是，但是在一些IDE下创建项目时，即使项目目录不在环境变量的GOPATH下，IDE也会自动为新建的项目创建一个GOPATH，从而保证程序能够正常编译。">
+<meta property="og:description" content="今日所得 写完了单片机作业 了解了什么是基线预测，对ARIMA有了进一步的认识。 1、首先将数据按照一定的方法转换为监督学习数据。 2、其次构建一个数据间的对应函数关系，也叫做数据的持久化。这种映射关系的构建往往是基于我们的经验或者对数据的预处理。 3、然后使用训练数据对模型进行训练，得到一个预测模型。再用这个模型对未来数据进行预测。 4、最后将预测值和真实值进行残差比较，得出预测值和真实值之间的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-18T10:16:17.766Z">
+<meta property="og:updated_time" content="2019-10-21T12:56:54.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go语言学笔记-1、风格和结构">
-<meta name="twitter:description" content="常见问题 Q:Go的源码必须在GOPATH目录下才能进行开发吗？ A:确实是，但是在一些IDE下创建项目时，即使项目目录不在环境变量的GOPATH下，IDE也会自动为新建的项目创建一个GOPATH，从而保证程序能够正常编译。">
+<meta name="twitter:title" content="每日复盘-2019&#x2F;10&#x2F;21">
+<meta name="twitter:description" content="今日所得 写完了单片机作业 了解了什么是基线预测，对ARIMA有了进一步的认识。 1、首先将数据按照一定的方法转换为监督学习数据。 2、其次构建一个数据间的对应函数关系，也叫做数据的持久化。这种映射关系的构建往往是基于我们的经验或者对数据的预处理。 3、然后使用训练数据对模型进行训练，得到一个预测模型。再用这个模型对未来数据进行预测。 4、最后将预测值和真实值进行残差比较，得出预测值和真实值之间的">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/16/Go语言学笔记-1、风格和结构/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/每日复盘-2019-10-21/">
 
 
 
 
 
-  <title>Go语言学笔记-1、风格和结构 | Yatogami's Blog</title>
+  <title>每日复盘-2019/10/21 | Yatogami's Blog</title>
 
   
 
@@ -264,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/Go语言学笔记-1、风格和结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/每日复盘-2019-10-21/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yatogami">
@@ -281,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Go语言学笔记-1、风格和结构</h1>
+          <h1 class="post-title" itemprop="name headline">每日复盘-2019/10/21</h1>
         
 
         <div class="post-meta">
@@ -293,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T11:56:30+08:00">
-                2019-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T20:49:22+08:00">
+                2019-10-21
               </time>
             
 
@@ -303,6 +302,39 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">复盘</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">每日复盘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -331,11 +363,90 @@
       
 
       
-        <h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ul>
-<li><p>Q:Go的源码必须在GOPATH目录下才能进行开发吗？</p>
-<p>A:确实是，但是在一些IDE下创建项目时，即使项目目录不在环境变量的GOPATH下，IDE也会<strong>自动为新建的项目创建一个GOPATH</strong>，从而保证程序能够正常编译。</p>
+        <h2 id="今日所得"><a href="#今日所得" class="headerlink" title="今日所得"></a>今日所得</h2><ul>
+<li>写完了单片机作业</li>
+<li>了解了什么是基线预测，对ARIMA有了进一步的认识。<blockquote>
+<p>1、首先将数据按照一定的方法转换为监督学习数据。</p>
+<p>2、其次构建一个数据间的对应函数关系，也叫做数据的持久化。这种映射关系的构建往往是基于我们的经验或者对数据的预处理。</p>
+<p>3、然后使用训练数据对模型进行训练，得到一个预测模型。再用这个模型对未来数据进行预测。</p>
+<p>4、最后将预测值和真实值进行残差比较，得出预测值和真实值之间的差异，或者损失，这就是一个最基本的基线预测。</p>
+<p>5、后续我们在此基础之上开发出来的预测模型，得到的残差值都不能比当前这个基线预测差，否则说明我们的预测方法是不靠谱的或者无意义的。</p>
+</blockquote>
+</li>
+<li>专业课：<ul>
+<li>高频：<ul>
+<li>高频电路上的功率啥的，好像是调整Vbm之类的对效率和功率的影响。</li>
+<li>布置了作业5-4和5-11</li>
+<li>这一部分基本都往了，还是得复习复习</li>
+</ul>
+</li>
+<li>单片机：<ul>
+<li>结束了中断部分，开始了计时器。</li>
+</ul>
 </li>
 </ul>
+</li>
+<li>减肥：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跑步</td>
+<td>2*400</td>
+</tr>
+<tr>
+<td>仰卧起坐</td>
+<td>30个（腹肌疼）</td>
+</tr>
+<tr>
+<td>俯卧撑</td>
+<td>20个</td>
+</tr>
+<tr>
+<td>晚饭</td>
+<td>2*火龙果</td>
+</tr>
+</tbody>
+</table>
+<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>依旧是一事无成的一天，我这一天到底做了什么。</p>
+<blockquote>
+<p>只计算没课的时间</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>做了什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7:00~9.30</td>
+<td>写了单片机作业，6页，但效率确实不高</td>
+</tr>
+<tr>
+<td>中午</td>
+<td>全nm睡过去了</td>
+</tr>
+<tr>
+<td>晚上下课之后</td>
+<td>跑了跑步，看来theShy的第一视角，又看了一会ARIMA</td>
+</tr>
+<tr>
+<td>8.50之后</td>
+<td>要组装小挑的机器</td>
+</tr>
+</tbody>
+</table>
+<p> 到底是什么浪费了我的时间，个人感觉单片机作业写的时候效率并不是那么的低，因为它确实太多了，但是高频上课到现在基本一无所获也是真的，课后复习真的很重要。</p>
+<p> 中午在教室午睡，被吵醒了几次，然后一觉到上课，中午没学习。</p>
+<p> 晚上，看了theshy的第一视角，然后看了会基线预测，就得去给组装机器了。</p>
 
       
     </div>
@@ -351,14 +462,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
-          
-            <a href="/tags/Go/" rel="tag"># Go</a>
-          
-        </div>
-      
 
       
       
@@ -368,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/16/每日复盘-2019-10-16/" rel="next" title="每日复盘-2019/10/16">
-                <i class="fa fa-chevron-left"></i> 每日复盘-2019/10/16
+              <a href="/2019/10/19/每日复盘-19-10-19/" rel="next" title="每日复盘-19/10/19">
+                <i class="fa fa-chevron-left"></i> 每日复盘-19/10/19
               </a>
             
           </div>
@@ -377,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/17/LeetCode-1207/" rel="prev" title="吃透LeetCode-1207">
-                吃透LeetCode-1207 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">1.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#今日所得"><span class="nav-number">1.</span> <span class="nav-text">今日所得</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感悟"><span class="nav-number">2.</span> <span class="nav-text">感悟</span></a></li></ol></div>
             
 
           </div>
