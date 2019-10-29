@@ -263,6 +263,500 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/时间序列学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/29/时间序列学习笔记/" itemprop="url">时间序列学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T17:52:16+08:00">
+                2019-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="利用Series对数据进行拆分，一半用来模型建立，一半用来测试。"><a href="#利用Series对数据进行拆分，一半用来模型建立，一半用来测试。" class="headerlink" title="利用Series对数据进行拆分，一半用来模型建立，一半用来测试。"></a>利用Series对数据进行拆分，一半用来模型建立，一半用来测试。</h1><h2 id="从Excel文件中读取数据并生成Series"><a href="#从Excel文件中读取数据并生成Series" class="headerlink" title="从Excel文件中读取数据并生成Series"></a>从Excel文件中读取数据并生成Series</h2><p>首先利用Pandas包读取excel，生成的数据类型是<code>DataFrame</code>，之后利用DataFrame内置的<code>as_matrix</code>方法，将其转化为<code>nparray</code>方便处理。</p>
+<h2 id="检验模型"><a href="#检验模型" class="headerlink" title="检验模型"></a>检验模型</h2><p>目前有的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> #assess the precision of the model</span><br><span class="line">def evaluate(tests,predections):                    </span><br><span class="line">    mse = mean_squared_error(tests,predections)</span><br><span class="line">    rmse = sqrt(mse)</span><br><span class="line">    print(&apos;RMSE: %.3f&apos; % rmse)</span><br></pre></td></tr></table></figure></p>
+<p>现在的这么多代码只是对最基本的数据进行了均方误差计算，即<br>$$<br>    mse=\frac{1}{n}\sum_{i=1}^{n}(prediction_i - test_i)^2<br>$$</p>
+<p>网上大佬的代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="comment"># load data</span></span><br><span class="line">series = Series.from_csv(<span class="string">'dataset.csv'</span>)</span><br><span class="line"><span class="comment"># prepare data</span></span><br><span class="line">X = series.values</span><br><span class="line">X = X.astype(<span class="string">'float32'</span>)</span><br><span class="line">train_size = int(len(X) * <span class="number">0.50</span>)</span><br><span class="line">train, test = X[<span class="number">0</span>:train_size], X[train_size:]</span><br><span class="line"><span class="comment"># walk-forward validation</span></span><br><span class="line">history = [x <span class="keyword">for</span> x <span class="keyword">in</span> train]</span><br><span class="line">predictions = list()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(test)):</span><br><span class="line">    <span class="comment"># predict</span></span><br><span class="line">    yhat = history[<span class="number">-1</span>]</span><br><span class="line">    predictions.append(yhat)</span><br><span class="line">    <span class="comment"># observation</span></span><br><span class="line">    obs = test[i]</span><br><span class="line">    history.append(obs)</span><br><span class="line">    print(<span class="string">'&gt;Predicted=%.3f, Expected=%3.f'</span> % (yhat, obs))</span><br><span class="line"><span class="comment"># report performance</span></span><br><span class="line">mse = mean_squared_error(test, predictions)</span><br><span class="line">rmse = sqrt(mse)</span><br><span class="line">print(<span class="string">'RMSE: %.3f'</span> % rmse)</span><br></pre></td></tr></table></figure></p>
+<p>这个是也附加了基线预测的代码，基线预测的讲解在下面</p>
+<h2 id="基线预测"><a href="#基线预测" class="headerlink" title="基线预测"></a>基线预测</h2><p>上面的大佬的完整的代码里面是附有基线预测的代码的，但是我现在还不是很明白基线预测到底是干啥的。翻一下百科<br>什么是基线预测，基线预测有什么用呢？</p>
+<blockquote>
+<p>1、首先将数据按照一定的方法转换为监督学习数据。</p>
+<p>2、其次构建一个数据间的对应函数关系，也叫做数据的持久化。这种映射关系的构建往往是基于我们的经验或者对数据的预处理。</p>
+<p>3、然后使用训练数据对模型进行训练，得到一个预测模型。再用这个模型对未来数据进行预测。</p>
+<p>4、最后将预测值和真实值进行残差比较，得出预测值和真实值之间的差异，或者损失，这就是一个最基本的基线预测。</p>
+<p>5、后续我们在此基础之上开发出来的预测模型，得到的残差值都不能比当前这个基线预测差，否则说明我们的预测方法是不靠谱的或者无意义的。</p>
+</blockquote>
+<p>这个第五点才是最重要的，基线预测可以算出来一个<code>rmse</code>，我们的预测模型也会算出来一个<code>rmse</code>。只有预测模型的<code>rmse</code>小于基线预测的<code>rmse</code>这个模型才是<strong>可接受的</strong>，有意义的。</p>
+<h2 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h2><p>所谓的数据分析，就是画出一堆的图，这基本都是考的python的基本功了。</p>
+<h3 id="画多个图"><a href="#画多个图" class="headerlink" title="画多个图"></a>画多个图</h3><p>最好先利用<code>pyplot.firgure(&#39;name&#39;)</code>新建一个图形窗口，之后先利用<code>subplot</code>确定要分成多少个窗口和该窗口之后占的位置，之后紧接<code>plot</code>即可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataAnalysing</span><span class="params">(datas:pandas.Series)</span>:</span></span><br><span class="line">    <span class="comment"># show the description of the datas</span></span><br><span class="line">    print(datas.describe())</span><br><span class="line">    <span class="comment"># draw line graph</span></span><br><span class="line">    datas.plot()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># regroup datas by year</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        it shows that the data is indeed seasonal</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drawByYear</span><span class="params">()</span>:</span></span><br><span class="line">        MONTHS = <span class="number">12</span></span><br><span class="line">        plotTool.figure(<span class="string">'Years Data'</span>)</span><br><span class="line">        groups = list()</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(datas):</span><br><span class="line">            tmpList = datas[i:i+<span class="number">12</span>]</span><br><span class="line">            groups.append(tmpList)</span><br><span class="line">            i = i + <span class="number">12</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">7</span>):</span><br><span class="line">            plotTool.subplot(<span class="number">711</span>+j)</span><br><span class="line">            plotTool.plot(groups[j])</span><br><span class="line">    drawByYear()</span><br><span class="line"></span><br><span class="line">    plotTool.show()</span><br></pre></td></tr></table></figure></p>
+<h3 id="统计数据"><a href="#统计数据" class="headerlink" title="统计数据"></a>统计数据</h3><p>可以直接调用<code>pandas.Series.describe()</code>方法来查看当前Series数据的统计信息。<br>该函数的返回结果是一个<code>Series</code>类型的数据，每个数据都有对应的标签，包含<code>count,mean,std,min,max</code></p>
+<h1 id="ARIMA"><a href="#ARIMA" class="headerlink" title="ARIMA"></a>ARIMA</h1><p>终于正式开始了ARIMA。先尝试手动配置ARIMA。</p>
+<h2 id="手动配置d"><a href="#手动配置d" class="headerlink" title="手动配置d"></a>手动配置d</h2><p>手动配置d就是利用<code>diff</code>函数，然后对diff出的结果利用<code>adfuller</code>函数计算一下，看一下他的置信区间，看看是不是能满足要求。</p>
+<p>ADF的计算下面有讲。</p>
+<h2 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h2><p>差分可以直接调用<code>Series.diff()</code>函数，它接收一个函数，但是这个函数并不是差分阶数，而是如下的效果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果参数为inter，那么返回的差分序列为</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(inter,len(datas)):</span><br><span class="line">    res[i] = datas[i] - datas[i-inter]</span><br></pre></td></tr></table></figure></p>
+<p>即不是阶数，而是差分相减的两个数的间隔。</p>
+<p>最终，二阶差分较为合适。<br><img src="/2019/10/29/时间序列学习笔记/imgs/diff_after.png" alt></p>
+<h2 id="adfuller函数"><a href="#adfuller函数" class="headerlink" title="adfuller函数"></a>adfuller函数</h2><p>最近在学习用ARIMA模型建模处理预测数据的时候遇到的一个用来评测稳定性的函数，该函数可以返回一个数组，包含五个数据。</p>
+<p>第一个是adt检验的结果，也就是t统计量的值。</p>
+<p>第二个是t统计量的P值。</p>
+<p>第三个是计算过程中用到的延迟阶数。</p>
+<p>第四个是用于ADF回归和计算的观测值的个数。</p>
+<p>第五个是配合第一个一起看的，是在99%，95%，90%置信区间下的临界的ADF检验的值。如果第一个值比第五个值小证明平稳，反正证明不平稳。根据结果看出来，你的数据不平稳。</p>
+<p>具体作用是检验数据是否平稳，下面有讲。</p>
+<h2 id="数据平稳化"><a href="#数据平稳化" class="headerlink" title="数据平稳化"></a>数据平稳化</h2><p>所谓数据的平稳化其实就是数据的<strong>均值</strong>和<strong>方差</strong>不会发生明显的改变。</p>
+<blockquote>
+<p>错误理解：平稳化指数据波动幅度不大</p>
+</blockquote>
+<p>通过对时间序列数据进行差分可以达到这一目的，这里我对时间序列进行<strong>二阶差分</strong>，前后对比如下。<br><img src="/2019/10/29/时间序列学习笔记/imgs/diff_before.png" alt="前"><br><img src="/2019/10/29/时间序列学习笔记/imgs/diff_after.png" alt="后"></p>
+<h2 id="检验数据是否平稳"><a href="#检验数据是否平稳" class="headerlink" title="检验数据是否平稳"></a>检验数据是否平稳</h2><p>一般的时间序列都不平稳，需要进行差分，<strong>那么如何检验差分后的结果是否平稳呢？</strong>利用<code>adfuller</code>函数计算ADF统计值。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adfuller(datas:Series)函数的返回值如下，下面的第一个数据即为当前数据对应的ADF统计值。</span><br><span class="line">(<span class="number">-3.5903650533373046</span>, <span class="number">0.0059479214455438858</span>, <span class="number">12</span>, <span class="number">83</span>, &#123;<span class="string">'1%'</span>: <span class="number">-3.5117123057187376</span>, <span class="string">'5%'</span>: <span class="number">-2.8970475206326833</span>, <span class="string">'10%'</span>: <span class="number">-2.5857126912469153</span>&#125;, <span class="number">1479.6186385463136</span>)</span><br><span class="line">而<span class="number">1</span>%，<span class="number">5</span>%，<span class="number">10</span>%则代表临界值。</span><br></pre></td></tr></table></figure></p>
+<p>当<code>ADF统计值</code>小于$\alpha$对应的临界值的时候，则代表当前时间序列数据，在$1-\alpha$的置信区间上是稳定的。</p>
+<p>本例中的说明二阶差分后的数据是在99%的置信区间上是稳定的，满足ARIMA的要求。</p>
+<h2 id="p和q的确定"><a href="#p和q的确定" class="headerlink" title="p和q的确定"></a>p和q的确定</h2><p>通过管擦<code>acf</code>和<code>pacf</code>图来确定p和q值</p>
+<p>这玩意挺玄学的，我也不懂，最后还是靠的搜索结果</p>
+<h2 id="预测下一个值"><a href="#预测下一个值" class="headerlink" title="预测下一个值"></a>预测下一个值</h2><p><code>model_fit.forecast()[0]</code>，一般结合<code>len(test)</code>来达到预测很多值的效果</p>
+<h2 id="代码汇总"><a href="#代码汇总" class="headerlink" title="代码汇总"></a>代码汇总</h2><h2 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h2><p><code>You should induce invertibility, choose a different model order, or you can pass your own start_params.</code></p>
+<p>这个错误说明当前的参数组合导致该模型是不可逆的，不满足要求，加上<code>try...except...</code>语句块即可</p>
+<p>还有几个参数配比会直接退出程序，加了try..except…语句块也没用。一个个试出来最后剔除掉不行的。</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>搜索得到的最优参数为(2,1,1)<br><img src="/2019/10/29/时间序列学习笔记/imgs/result.png" alt></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plotTool</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller</span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_acf</span><br><span class="line"><span class="keyword">from</span> statsmodels.graphics.tsaplots <span class="keyword">import</span> plot_pacf</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.seasonal <span class="keyword">import</span> seasonal_decompose</span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARIMA</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the Series from Excel data</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createSeries</span><span class="params">()</span>:</span></span><br><span class="line">    workbook = pandas.read_excel(<span class="string">r'客运量.xlsx'</span>)</span><br><span class="line">    ndArr = workbook.values         <span class="comment"># convert Dataframe to ndarray</span></span><br><span class="line">    ndArr = ndArr[...,<span class="number">1</span>]            <span class="comment"># extract the second col of ndarray</span></span><br><span class="line">    <span class="keyword">return</span> pandas.Series(ndArr)     <span class="comment"># return the Series created</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># split the datas into two group</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">splitDataSet</span><span class="params">(Ser)</span>:</span></span><br><span class="line">    split_point = len(Ser) - <span class="number">9</span></span><br><span class="line">    datas , validation = Ser[<span class="number">0</span>:split_point] , Ser[split_point:]</span><br><span class="line">    datas.to_csv(<span class="string">'datas.csv'</span>)</span><br><span class="line">    validation.to_csv(<span class="string">'validation.csv'</span>)</span><br><span class="line">    <span class="keyword">return</span> datas,validation</span><br><span class="line"></span><br><span class="line"> <span class="comment">#assess the precision of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate</span><span class="params">(tests,predections)</span>:</span>                    </span><br><span class="line">    mse = mean_squared_error(tests,predections)</span><br><span class="line">    rmse = sqrt(mse)</span><br><span class="line">    print(<span class="string">'RMSE: %.3f'</span> % rmse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get p and q value</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getParameter</span><span class="params">(datas)</span>:</span>        <span class="comment"># p =1 , q = 1</span></span><br><span class="line">    datas = datas[<span class="number">24</span>:]</span><br><span class="line">    plotTool.figure(<span class="string">'q p value'</span>)</span><br><span class="line">    plotTool.subplot(<span class="number">211</span>)</span><br><span class="line">    plot_acf(datas,ax=plotTool.gca())</span><br><span class="line">    plotTool.subplot(<span class="number">212</span>)</span><br><span class="line">    plot_pacf(datas,ax=plotTool.gca())</span><br><span class="line">    plotTool.show()</span><br><span class="line">    print(datas)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataAnalysing</span><span class="params">(datas:pandas.Series)</span>:</span></span><br><span class="line">    <span class="comment"># show the description of the datas</span></span><br><span class="line">    print(datas.describe())</span><br><span class="line">    <span class="comment"># draw line graph</span></span><br><span class="line">    datas.plot()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># regroup datas by year</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        it shows that the data is indeed seasonal</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drawByYear</span><span class="params">()</span>:</span></span><br><span class="line">        MONTHS = <span class="number">12</span></span><br><span class="line">        plotTool.figure(<span class="string">'Years Data'</span>)</span><br><span class="line">        groups = list()</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(datas):</span><br><span class="line">            tmpList = datas[i:i+<span class="number">12</span>]</span><br><span class="line">            groups.append(tmpList)</span><br><span class="line">            i = i + <span class="number">12</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">7</span>):</span><br><span class="line">            plotTool.subplot(<span class="number">711</span>+j)</span><br><span class="line">            plotTool.plot(groups[j])</span><br><span class="line">    drawByYear()</span><br><span class="line"></span><br><span class="line">    plotTool.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#baseline forecast      Complete!</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">baseline</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># load data</span></span><br><span class="line">    series = pandas.Series.from_csv(<span class="string">'datas.csv'</span>)</span><br><span class="line">    <span class="comment"># prepare data</span></span><br><span class="line">    X = series.values</span><br><span class="line">    X = X.astype(<span class="string">'float32'</span>)</span><br><span class="line">    train_size = int(len(X) * <span class="number">0.50</span>)</span><br><span class="line">    train, test = X[<span class="number">0</span>:train_size], X[train_size:]   <span class="comment">#split to two groups,one to train ,the other to test.</span></span><br><span class="line">    <span class="comment"># walk-forward validation</span></span><br><span class="line">    history = [x <span class="keyword">for</span> x <span class="keyword">in</span> train]</span><br><span class="line">    predictions = list()                            <span class="comment"># save the result of the forecast</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(test)):</span><br><span class="line">        <span class="comment"># predict</span></span><br><span class="line">        yhat = history[<span class="number">-1</span>]</span><br><span class="line">        predictions.append(yhat)</span><br><span class="line">        <span class="comment"># observation</span></span><br><span class="line">        obs = test[i]</span><br><span class="line">        history.append(obs)</span><br><span class="line">        print(<span class="string">'&gt;Predicted=%.3f, Expected=%3.f'</span> % (yhat, obs))</span><br><span class="line">    <span class="comment"># report performance</span></span><br><span class="line">    plotTool.plot(X)</span><br><span class="line">    plotTool.plot(predictions,color=<span class="string">'red'</span>)</span><br><span class="line">    plotTool.plot(test,color=<span class="string">'blue'</span>)</span><br><span class="line">    plotTool.show()</span><br><span class="line">    mse = mean_squared_error(test, predictions)</span><br><span class="line">    rmse = sqrt(mse)</span><br><span class="line">    print(<span class="string">'RMSE: %.3f'</span> % rmse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># according the given interval  ,diff the datas, sata it to the 'stationary.csv'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(datas,interval = <span class="number">1</span>)</span>:</span></span><br><span class="line">    diff = list()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(interval,len(datas)):</span><br><span class="line">        value = datas[i] - datas[i - interval]</span><br><span class="line">        diff.append(value)</span><br><span class="line">    <span class="keyword">return</span> pandas.Series(diff)</span><br><span class="line"></span><br><span class="line"><span class="comment"># diff data</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">doDiff</span><span class="params">(datas)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        diff the datas , twice is enough</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># (-1.7964891147390838, 0.38220613860489028, 4, 91, &#123;'1%': -3.5043428982139702, '5%': -2.8938659630479413, '10%': -2.5840147047458037&#125;, 1430.852857668664)</span></span><br><span class="line">    diffa = datas.diff(<span class="number">12</span>)  <span class="comment"># First difference is not enough</span></span><br><span class="line">    <span class="comment"># (-3.5903650533373046, 0.0059479214455438858, 12, 83, &#123;'1%': -3.5117123057187376, '5%': -2.8970475206326833, '10%': -2.5857126912469153&#125;, 1479.6186385463136)</span></span><br><span class="line">    diffa = diffa.diff(<span class="number">12</span>)</span><br><span class="line">    diffa.to_csv(<span class="string">'stationary.csv'</span>)</span><br><span class="line">    <span class="keyword">return</span> diffa </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># invase diff value</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">invase_diff</span><span class="params">(history,yhat,interval=<span class="number">12</span>)</span>:</span></span><br><span class="line">    yhat = yhat + history[-interval]</span><br><span class="line">    <span class="keyword">return</span> yhat + history[-interval]</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------ARIMA---------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据给出的步长interval，创建一个差分序列，间隔12个数字相减</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(dataset, interval=<span class="number">1</span>)</span>:</span></span><br><span class="line">	diff = list()</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(interval, len(dataset)):</span><br><span class="line">		value = dataset[i] - dataset[i - interval]</span><br><span class="line">		diff.append(value)</span><br><span class="line">	<span class="keyword">return</span> diff</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 还原差分值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse_difference</span><span class="params">(history, yhat, interval=<span class="number">1</span>)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> yhat + history[-interval]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluateARIMA</span><span class="params">(datas,order,debug=True)</span>:</span></span><br><span class="line">    datas = datas.values</span><br><span class="line">    datas = datas.astype(<span class="string">'float32'</span>)</span><br><span class="line">    train_size = int(len(datas)*<span class="number">0.5</span>)</span><br><span class="line">    train , test = datas[<span class="number">0</span>:train_size] , datas[train_size:]</span><br><span class="line">    history = [x <span class="keyword">for</span> x <span class="keyword">in</span> train]</span><br><span class="line">    predictions = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(test)):</span><br><span class="line">        difflevel = <span class="number">12</span></span><br><span class="line">        mDiff = difference(history, difflevel)</span><br><span class="line">        model = ARIMA(mDiff,order=order)</span><br><span class="line">        model_fit = model.fit(trend=<span class="string">'nc'</span>, disp=<span class="number">0</span>)</span><br><span class="line">        yhat = model_fit.forecast()[<span class="number">0</span>]</span><br><span class="line">        yhat = inverse_difference(history,yhat,<span class="number">12</span>)</span><br><span class="line">        predictions.append(yhat)</span><br><span class="line">        history.append(test[i])</span><br><span class="line">    <span class="comment"># 获取误差分析报告</span></span><br><span class="line">    mse = mean_squared_error(test, predictions)</span><br><span class="line">    rmse = sqrt(mse)</span><br><span class="line">    print(order)</span><br><span class="line">    print(<span class="string">'RMSE: %.3f '</span> % rmse)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ## start forecast</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> debug:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">12</span>):</span><br><span class="line">            difflevel = <span class="number">12</span></span><br><span class="line">            mDiff = difference(history, difflevel)</span><br><span class="line">            model = ARIMA(mDiff,order=order)</span><br><span class="line">            model_fit = model.fit(trend=<span class="string">'nc'</span>, disp=<span class="number">0</span>)</span><br><span class="line">            yhat = model_fit.forecast()[<span class="number">0</span>]</span><br><span class="line">            yhat = inverse_difference(history,yhat,<span class="number">12</span>)</span><br><span class="line">            predictions.append(yhat)</span><br><span class="line">            history.append(yhat)</span><br><span class="line">        plotTool.plot(datas[train_size:])</span><br><span class="line">        plotTool.plot(predictions)</span><br><span class="line">        plotTool.show()</span><br><span class="line">    <span class="keyword">return</span> rmse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>: </span><br><span class="line">    warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line">    mSer = createSeries()</span><br><span class="line">    datas , test = splitDataSet(mSer)</span><br><span class="line">    print(len(test))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># dataAnalysing(datas)</span></span><br><span class="line">    <span class="comment"># baseline()</span></span><br><span class="line">    diffa = doDiff(datas)</span><br><span class="line">    <span class="comment"># show the statistics of different area</span></span><br><span class="line">    print(adfuller(diffa[<span class="number">24</span>:]))        <span class="comment"># ADF Statistic: -1.98  &gt; '1% : -3.49'</span></span><br><span class="line">    diffa = diffa[<span class="number">24</span>:]</span><br><span class="line">    <span class="comment"># plot diff before and after</span></span><br><span class="line">    <span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">        plotTool.figure(<span class="string">'diff before'</span>)</span><br><span class="line">        datas.plot()</span><br><span class="line">        plotTool.figure(<span class="string">'diff after'</span>)</span><br><span class="line">        diffa.plot()</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">        print(datas.describe())</span><br><span class="line">        <span class="comment">### describe of the diff data</span></span><br><span class="line">        split_len = int(len(diffa) / <span class="number">10</span>)</span><br><span class="line">        diffa.plot()</span><br><span class="line">        describe_list = list()</span><br><span class="line">        std_list = list()</span><br><span class="line">        mean_list = list()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>):   <span class="comment"># i : 0~9</span></span><br><span class="line">            splitData = diffa[i*split_len:(i+<span class="number">1</span>)*split_len]</span><br><span class="line">            describe_list.append(splitData.describe())</span><br><span class="line">            std_list.append(describe_list[i].get(<span class="string">'std'</span>))</span><br><span class="line">            mean_list.append(describe_list[i].get(<span class="string">'mean'</span>))</span><br><span class="line"></span><br><span class="line">        plotTool.figure(<span class="string">'std'</span>)</span><br><span class="line">        plotTool.plot(std_list)</span><br><span class="line">        plotTool.figure(<span class="string">'means'</span>)</span><br><span class="line">        plotTool.plot(mean_list)</span><br><span class="line">        plotTool.show()</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">        getParameter(diffa)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#ARIMA start!</span></span><br><span class="line">    <span class="keyword">if</span> <span class="literal">False</span>:</span><br><span class="line">        history = [x <span class="keyword">for</span> x <span class="keyword">in</span> datas]</span><br><span class="line">        predictions = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(test)):</span><br><span class="line">            p, d, q = <span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span></span><br><span class="line">            model = ARIMA(diffa,order=(p,d,q))</span><br><span class="line">            <span class="comment"># unenable the model auto add constant value</span></span><br><span class="line">            model_fit = model.fit()</span><br><span class="line">            <span class="comment"># get the forecast result</span></span><br><span class="line">            yhat = model_fit.forecast()[<span class="number">0</span>]</span><br><span class="line">            print(yhat)</span><br><span class="line">            <span class="comment"># inverse diff</span></span><br><span class="line">            <span class="comment"># yhat = invase_diff(history,yhat,12)</span></span><br><span class="line">            <span class="comment"># 保存预测值</span></span><br><span class="line">            predictions.append(yhat)</span><br><span class="line">            <span class="comment"># 获取真实值</span></span><br><span class="line">            obs = test.values[i]</span><br><span class="line">            history.append(obs)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#result = model_fit.predict(start=100)</span></span><br><span class="line">        plotTool.plot(test)</span><br><span class="line">        plotTool.plot(predictions)</span><br><span class="line">        plotTool.show()</span><br><span class="line">    <span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">        curMin = <span class="number">999999</span></span><br><span class="line">        bst = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">3</span>):</span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">3</span>):</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">3</span>):</span><br><span class="line">                    <span class="keyword">if</span> q == <span class="number">4</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> p == <span class="number">1</span> <span class="keyword">and</span> d == <span class="number">2</span> <span class="keyword">and</span> q == <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> p == <span class="number">2</span> <span class="keyword">and</span> d == <span class="number">1</span> <span class="keyword">and</span> q == <span class="number">6</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">try</span>:</span><br><span class="line">                        print(p,d,q)</span><br><span class="line">                        rmse = evaluateARIMA(datas,(p,d,q))</span><br><span class="line">                        print(<span class="string">'order = &#123;p&#125;,&#123;d&#125;,&#123;q&#125;, rmse = &#123;rmse&#125;'</span>.format(p=p,d=d,q=q,rmse=rmse))</span><br><span class="line">                        <span class="keyword">if</span> rmse &lt; curMin:</span><br><span class="line">                            curMin = rmse</span><br><span class="line">                            bst = [p,d,q]</span><br><span class="line">                    <span class="keyword">except</span>:</span><br><span class="line">                        <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># best  2 ,1 ,1</span></span><br><span class="line">        print(<span class="string">'order = &#123;p&#125;,&#123;d&#125;,&#123;q&#125;, rmse = &#123;rmse&#125;'</span>.format(p=bst[<span class="number">0</span>],d=bst[<span class="number">1</span>],q=bst[<span class="number">2</span>],rmse=curMin))</span><br><span class="line">        </span><br><span class="line">        rmse = evaluateARIMA(datas,(bst[<span class="number">0</span>],bst[<span class="number">1</span>],bst[<span class="number">2</span>]),<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"> 0 1 1 1574</span></span><br><span class="line"><span class="string"> 113 1535</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>(时间序列预测基础教程系列(9)_一个完整的python时间序列预测示例(Python))[<a href="https://blog.csdn.net/yangwohenmai1/article/details/85227912]" target="_blank" rel="noopener">https://blog.csdn.net/yangwohenmai1/article/details/85227912]</a><br>(时间序列预测分析(ARIMA))[<a href="https://www.jianshu.com/p/5c5a6293640a]" target="_blank" rel="noopener">https://www.jianshu.com/p/5c5a6293640a]</a><br>(ARIMA模型原理及实现)[<a href="https://www.jianshu.com/p/305c4961ee06]" target="_blank" rel="noopener">https://www.jianshu.com/p/305c4961ee06]</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/每日复盘-2019-10-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/29/每日复盘-2019-10-29/" itemprop="url">每日复盘-2019/10/29</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T17:52:07+08:00">
+                2019-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">复盘</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">每日复盘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="今日所得"><a href="#今日所得" class="headerlink" title="今日所得"></a>今日所得</h2><ul>
+<li>ARIMA部分结束</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/每日复盘-2019-10-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/29/每日复盘-2019-10-28/" itemprop="url">每日复盘-2019/10/28</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-29T17:52:01+08:00">
+                2019-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">复盘</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
+                    <span itemprop="name">每日复盘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="今日所得"><a href="#今日所得" class="headerlink" title="今日所得"></a>今日所得</h2><p>这其实是次日补的了，因为昨天晚上很蒙，弄到晚上甚至忘了要干啥了。</p>
+<ul>
+<li>用kindle读了一部分经济学人<ul>
+<li>发现读这种外刊还是用ipad+marginNote舒服，kindle查词太慢，适合二刷</li>
+</ul>
+</li>
+<li>信号作业写完了</li>
+<li>写完了FPGA报告的过程部分</li>
+<li>过了一遍数学竞赛11届初试题目，但还是好多不懂的</li>
+<li>ARIMA快要收尾了</li>
+</ul>
+<p>好像就这么多，这一想还真是一事无成浪费了那么多时间</p>
+<h2 id="任务剩余"><a href="#任务剩余" class="headerlink" title="任务剩余"></a>任务剩余</h2><ul>
+<li>单片机作业</li>
+<li>单词</li>
+<li>经济学人</li>
+<li>高频作业</li>
+<li>毛概报告</li>
+<li>FPGA课设</li>
+<li>FPGA报告</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/每日复盘-2019-10-27/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1561,472 +2055,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/每日复盘-2019-10-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/17/每日复盘-2019-10-17/" itemprop="url">每日复盘-2019/10/17</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T21:44:25+08:00">
-                2019-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/复盘/" itemprop="url" rel="index">
-                    <span itemprop="name">复盘</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
-                    <span itemprop="name">每日复盘</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="今日收获"><a href="#今日收获" class="headerlink" title="今日收获"></a>今日收获</h1><h2 id="LeetCode-1207"><a href="#LeetCode-1207" class="headerlink" title="LeetCode-1207"></a>LeetCode-1207</h2><p>开始用Java做题了，现在刚开始还有点不大适应，希望以后能越来越熟练吧</p>
-<p><a href="/2019/10/17/LeetCode-1207/">LeetCode-1207</a></p>
-<h2 id="单词表"><a href="#单词表" class="headerlink" title="单词表"></a>单词表</h2><table>
-<thead>
-<tr>
-<th>单词</th>
-<th>释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bogeyman</td>
-<td>n,可怕的人或物</td>
-</tr>
-<tr>
-<td>mining</td>
-<td>v,采矿</td>
-</tr>
-<tr>
-<td>industy</td>
-<td>n,产业，工业</td>
-</tr>
-<tr>
-<td>extractors</td>
-<td>n,萃取器，提取者</td>
-</tr>
-<tr>
-<td>timber</td>
-<td>n,木材，材料</td>
-</tr>
-<tr>
-<td>rancher</td>
-<td>n,大农场主</td>
-</tr>
-<tr>
-<td>condemning</td>
-<td>n,谴责，处刑;v,谴责</td>
-</tr>
-<tr>
-<td>reaffirming</td>
-<td>v,确认，再肯定</td>
-</tr>
-<tr>
-<td>dishonoring</td>
-<td>v,违背</td>
-</tr>
-<tr>
-<td>securing</td>
-<td>v,确保</td>
-</tr>
-</tbody>
-</table>
-<h2 id="三大中值定理"><a href="#三大中值定理" class="headerlink" title="三大中值定理"></a>三大中值定理</h2><ul>
-<li>罗尔中值定理<br>$$<br>f^{‘}(\xi) = 0<br>$$</li>
-<li>拉格朗日中值定理<br>$$<br>f(b)-f(a)=f^{‘}(\xi)(b-a) , 其中\xi=a+\theta(b-a)<br>$$</li>
-<li>柯西中值定理<br>$$<br>\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f^{‘}(\xi)}{g^{‘}(\xi)}<br>$$</li>
-</ul>
-<h2 id="Kindle"><a href="#Kindle" class="headerlink" title="Kindle"></a>Kindle</h2><p>在Kindle上找到了几本专业书，比如<em>恋恋有词</em>和<em>Unix网络编程</em>。</p>
-<p>但是一直扩充图书容量不去看的话一点用都没有，<strong>把书存到kindle里不代表看过了</strong>，务必牢记于心。</p>
-<h2 id="书籍收集"><a href="#书籍收集" class="headerlink" title="书籍收集"></a>书籍收集</h2><p>淘宝上买了8.8的资料，其中包含</p>
-<ul>
-<li>数据结构 - 严蔚敏</li>
-<li>计算机网络(第五版)</li>
-<li>计算机操作系统 - 汤小丹</li>
-<li>计算机组成原理 - 唐朔飞</li>
-</ul>
-<p>以及全部的配套PPT和答案详解。</p>
-<p>其中部分书不清晰，或者版本过老，已经在网上找到了新的资源。</p>
-<h2 id="FPGA"><a href="#FPGA" class="headerlink" title="FPGA"></a>FPGA</h2><ul>
-<li>会调用了PLL</li>
-<li>对VGA驱动有了点理解</li>
-<li>老师布置了课设安排，自由发挥题目</li>
-</ul>
-<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>现在每天都上课时间太少了，加上杂乱无章的浪费的时间，哇，效率低到不行，明天尝试记录时间，看看都浪费到哪了。</p>
-<p>现在专业课看的时间太少了，我作为一个跨考生，还想成功上岸，还想在本专业内达到好成绩，这样的安排会不会太贪心了呢？看来也是时候做出一些取舍了。</p>
-<p>在用iPad上课的时候，经常划来划去做几个标记，但是现在想想，划来划去基本没用，自己课下也不会看，只有自己思考之后再记录，标记，才能起到它应有的作用。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/深入理解HashMap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/17/深入理解HashMap/" itemprop="url">深入理解HashMap</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T20:09:06+08:00">
-                2019-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/Java中HashMap的用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/17/Java中HashMap的用法/" itemprop="url">Java中HashMap的用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T20:08:45+08:00">
-                2019-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2077,7 +2105,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2099,7 +2127,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

@@ -263,6 +263,521 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/LeetCode-905/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/LeetCode-905/" itemprop="url">LeetCode-905</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T10:08:37+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个非负整数数组 A，返回一个数组，在该数组中， A 的所有偶数元素之后跟着所有奇数元素。</p>
+<p>你可以返回满足此条件的任何数组作为答案。</p>
+<p>示例：</p>
+<p>输入：[3,1,2,4]<br>输出：[2,4,3,1]<br>输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/sort-array-by-parity" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sort-array-by-parity</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Solution {
+public:
+    vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) {
+        vector&lt;int&gt; ji;
+        vector&lt;int&gt; ou;
+        for(auto each : A){
+            if(each % 2 == 0)
+                ou.push_back(each);
+            else
+                ji.push_back(each);
+        }
+        ou.insert(ou.end(),ji.begin(),ji.end());
+        return ou;
+    }
+};
+</code></pre><h1 id="学到了什么"><a href="#学到了什么" class="headerlink" title="学到了什么"></a>学到了什么</h1><p>可以利用如下的方法来合并两个Vector:</p>
+<pre><code>a.insert(a.end(),b.begin(),b.end());
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/位运算的妙用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/位运算的妙用/" itemprop="url">位运算的妙用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T09:11:44+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>计算机是利用二进制来存储数据的，使用位运算往往会有<strong>更高的效率</strong>。</p>
+<h2 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移</td>
+</tr>
+<tr>
+<td>~</td>
+<td>取反</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>按位或</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>按位与</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+</tr>
+</tbody>
+</table>
+<h1 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h1><h2 id="利用异或实现两个数的交换"><a href="#利用异或实现两个数的交换" class="headerlink" title="利用异或实现两个数的交换"></a>利用异或实现两个数的交换</h2><p>通常利用中间变量来实现交换两个数，如下</p>
+<pre><code>int tmp = a;
+a = b;
+b = a;
+</code></pre><p>如果使用异或，也可以对<strong>整数</strong>进行交换。</p>
+<pre><code>int tmp = a ^ b;
+a = tmp ^ a;
+b = tmp ^ b;
+//也可以不设置临时变量
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+</code></pre><p>原理分析：</p>
+<ol>
+<li>所有数与自己本身异或，其<strong>结果恒为0</strong>。</li>
+<li>任何数和0异或，其结果恒为<strong>其本身</strong>。</li>
+</ol>
+<p>陷阱：</p>
+<p>当用异或法交换两个相同的数时，得到的最终结果是<strong>两个数都为0</strong>，所以需要进行<strong>是否相同</strong>的判断。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/LeetCode-476/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/LeetCode-476/" itemprop="url">LeetCode-476</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T08:43:18+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。</p>
+<p>注意:</p>
+<pre><code>给定的整数保证在32位带符号整数的范围内。
+你可以假定二进制数不包含前导零位。
+</code></pre><p>示例 1:</p>
+<p>输入: 5<br>输出: 2<br>解释: 5的二进制表示为101（没有前导零位），其补数为010。所以你需要输出2。</p>
+<p>示例 2:</p>
+<p>输入: 1<br>输出: 0<br>解释: 1的二进制表示为1（没有前导零位），其补数为0。所以你需要输出0。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/number-complement" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-complement</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>5的二进制位为101</p>
+<p>7的二进制位为111</p>
+<p>5和7异或即为所求补数</p>
+<p>所以只需要找到所给数字<strong>同样长度</strong>的数，使其<strong>减去</strong>或者<strong>异或</strong>即可达到答案。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="找到与所给数目同样长度的全为1的数字"><a href="#找到与所给数目同样长度的全为1的数字" class="headerlink" title="找到与所给数目同样长度的全为1的数字"></a>找到与所给数目同样长度的全为1的数字</h2><pre><code>int tmp = 1;
+while(tmp&lt;num){
+    tmp &lt;&lt;= 1;
+    tmp +=  1;
+}
+</code></pre><p>这样就能找到同样长度的全为1的数。</p>
+<h2 id="求补数"><a href="#求补数" class="headerlink" title="求补数"></a>求补数</h2><p>可以利用tmp与num相减，也可以利用tmp与num<strong>异或</strong>。</p>
+<p>异或执行速度更快，建议使用异或。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Solution {
+public:
+    int findComplement(int num) {
+        int tmp = 1;
+        //让tmp和num同样长度
+        while(tmp&lt;num){
+            tmp &lt;&lt;= 1;
+            tmp +=  1;
+        }
+        return (tmp^num);
+    }
+};
+</code></pre><h1 id="学到的东西"><a href="#学到的东西" class="headerlink" title="学到的东西"></a>学到的东西</h1><ul>
+<li>找到与所给数目同样宽度的数可以利用while循环，每次<strong>移位加一</strong>。</li>
+<li>全为1的数减去一个数，与全为1的数与这个数异或，结果<strong>一样</strong>，并且<strong>异或</strong>效率更高。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/爬取漫画岛开发日记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1404,578 +1919,6 @@ public void func(int a){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/利用Python随机数来生成调查问卷的假结果/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/21/利用Python随机数来生成调查问卷的假结果/" itemprop="url">利用Python随机数来生成调查问卷的假结果</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T14:40:54+08:00">
-                2019-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本来是思修暑期调查的问卷，但是一个个找别人发太讨人厌了，就用python的随机数生成结果</p>
-<h3 id="生成结果代码"><a href="#生成结果代码" class="headerlink" title="生成结果代码"></a>生成结果代码</h3><pre><code>import random
-double = [3,7,9]
-mappings = {}
-for times in range(1,51):   #50次伪证
-    for No in range(1,11):   #生成10次随机数，对应十个题
-        if No in double:    #如果是2选1题
-            if random.randint(1,101) in range(1,51):     #选A
-                key = &apos;{d}A&apos;.format(d=No)
-                if key in mappings:
-                    mappings[key] += 1
-                else:
-                    mappings[key] = 1
-            else:                                   #选B
-                key = &apos;{d}B&apos;.format(d=No)
-                if key in mappings:
-                    mappings[key] += 1
-                else:
-                    mappings[key] = 1
-        else :              #那么就是三选一的题了
-            randNum = random.randint(1,101)
-            if randNum in range(1, 34):  # 选A
-                ans = &apos;A&apos;
-            elif randNum in range(34, 67):
-                ans = &apos;B&apos;
-            else:
-                ans = &apos;C&apos;
-            key = &apos;{d}{ans}&apos;.format(d=No,ans=ans)
-            if key in mappings:
-                mappings[key] += 1
-            else:
-                mappings[key] = 1
-
-print(mappings)
-</code></pre><h3 id="python提交问卷星"><a href="#python提交问卷星" class="headerlink" title="python提交问卷星"></a>python提交问卷星</h3><p>这一部分会被验证码卡死，还有待改进</p>
-<pre><code>import requests
-import re
-import time
-import random
-
-
-class WenJuanXing:
-    def __init__(self, url):
-        &quot;&quot;&quot;
-        :param url:要填写的问卷的url
-        &quot;&quot;&quot;
-        self.wj_url = url
-        self.post_url = None
-        self.header = None
-        self.cookie = None
-        self.data = None
-
-    def set_data(self):
-        &quot;&quot;&quot;
-        这个函数中生成问卷的结果，可根据问卷结果，随机生成答案
-        :return:
-        &quot;&quot;&quot;
-        self.data = {
-            &apos;submitdata&apos;: &apos;1$3}2$3}3$1}4$2}5$2}6$2}7$2}8$2}9$2}10$2&apos;
-        }
-
-    def set_header(self):
-        &quot;&quot;&quot;
-        随机生成ip，设置X-Forwarded-For
-        ip需要控制ip段，不然生成的大部分是国外的
-        直接利用随机数生成IP地址
-        :return:
-        &quot;&quot;&quot;
-        ip = &apos;{}.{}.{}.{}&apos;.format(112, random.randint(64, 68), random.randint(0, 255), random.randint(0, 255))
-        self.header = {
-            &apos;X-Forwarded-For&apos;: ip,
-            &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101 Firefox/68.0&apos;
-        }
-
-    def get_ktimes(self):
-        &quot;&quot;&quot;
-        随机生成一个ktimes,ktimes是构造post_url需要的参数，为一个整数
-        :return:
-        &quot;&quot;&quot;
-        return random.randint(15, 50)
-
-    def get_response(self):
-        &quot;&quot;&quot;
-        访问问卷网页，获取网页代码
-        :return: get请求返回的response
-        &quot;&quot;&quot;
-        response = requests.get(url=self.wj_url, headers=self.header)
-        self.cookie = response.cookies
-        return response
-
-    def get_jqnonce(self, response):
-        &quot;&quot;&quot;
-        通过正则表达式找出jqnonce,jqnonce是构造post_url需要的参数
-        :param response: 访问问卷网页，返回的reaponse
-        :return: 找到的jqnonce
-        &quot;&quot;&quot;
-        jqnonce = re.search(r&apos;.{8}-.{4}-.{4}-.{4}-.{12}&apos;, response.text)
-        return jqnonce.group()
-
-    def get_rn(self, response):
-        &quot;&quot;&quot;
-        通过正则表达式找出rn,rn是构造post_url需要的参数
-        :param response: 访问问卷网页，返回的reaponse
-        :return: 找到的rn
-        &quot;&quot;&quot;
-        rn = re.search(r&apos;\d{9,10}\.\d{8}&apos;, response.text)
-        return rn.group()
-
-    def get_id(self, response):
-        &quot;&quot;&quot;
-        通过正则表达式找出问卷id,问卷是构造post_url需要的参数
-        :param response: 访问问卷网页，返回的reaponse
-        :return: 找到的问卷id
-        &quot;&quot;&quot;
-        id = re.search(r&apos;\d{8}&apos;, response.text)
-        return id.group()
-
-    def get_jqsign(self, ktimes, jqnonce):
-        &quot;&quot;&quot;
-        通过ktimes和jqnonce计算jqsign,jqsign是构造post_url需要的参数
-        :param ktimes: ktimes
-        :param jqnonce: jqnonce
-        :return: 生成的jqsign
-        &quot;&quot;&quot;
-        result = []
-        b = ktimes % 10
-        if b == 0:
-            b = 1
-        for char in list(jqnonce):
-            f = ord(char) ^ b
-            result.append(chr(f))
-        return &apos;&apos;.join(result)
-
-    def get_start_time(self, response):
-        &quot;&quot;&quot;
-        通过正则表达式找出问卷starttime,问卷是构造post_url需要的参数
-        :param response: 访问问卷网页，返回的reaponse
-        :return: 找到的starttime
-        &quot;&quot;&quot;
-        start_time = re.search(r&apos;\d+?/\d+?/\d+?\s\d+?:\d{2}&apos;, response.text)
-        return start_time.group()
-
-    def set_post_url(self):
-        &quot;&quot;&quot;
-        生成post_url
-        :return:
-        &quot;&quot;&quot;
-        self.set_header()  # 设置请求头，更换ip
-        response = self.get_response()  # 访问问卷网页，获取response
-        ktimes = self.get_ktimes()  # 获取ktimes
-        jqnonce = self.get_jqnonce(response)  # 获取jqnonce
-        rn = self.get_rn(response)  # 获取rn
-        id = self.get_id(response)  # 获取问卷id
-        jqsign = self.get_jqsign(ktimes, jqnonce)  # 生成jqsign
-        start_time = self.get_start_time(response)  # 获取starttime
-        time_stamp = &apos;{}{}&apos;.format(int(time.time()), random.randint(100, 200))  # 生成一个时间戳，最后三位为随机数
-        url = &apos;https://www.wjx.cn/joinnew/processjq.ashx?submittype=1&amp;curID={}&amp;t={}&amp;starttim&apos; \
-              &apos;e={}&amp;ktimes={}&amp;rn={}&amp;jqnonce={}&amp;jqsign={}&apos;.format(id, time_stamp, start_time, ktimes, rn, jqnonce, jqsign)
-        self.post_url = url  # 设置url
-        print(self.post_url)
-
-    def post_data(self):
-        &quot;&quot;&quot;
-        发送数据给服务器
-        :return: 服务器返回的结果
-        &quot;&quot;&quot;
-        self.set_data()
-        response = requests.post(url=self.post_url, data=self.data, headers=self.header, cookies=self.cookie)
-        return response
-
-    def run(self):
-        &quot;&quot;&quot;
-        填写一次问卷
-        :return:
-        &quot;&quot;&quot;
-        self.set_post_url()
-        result = self.post_data()
-        print(result.content.decode())
-
-    def mul_run(self, n):
-        &quot;&quot;&quot;
-        填写多次问卷
-        :return:
-        &quot;&quot;&quot;
-        for i in range(n):
-            time.sleep(1)
-            self.run()
-
-
-if __name__ == &apos;__main__&apos;:
-    w = WenJuanXing(&apos;https://www.wjx.cn/jq/44307794.aspx&apos;)
-    w.mul_run(50)
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/安卓如何发送短信/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/02/安卓如何发送短信/" itemprop="url">安卓如何发送短信</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-02T16:32:39+08:00">
-                2019-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>安卓发送短信现在用的并不多，但是用的时候也要知道怎么用，本文章会介绍较为基本的短信发送的方法。</p>
-<h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="SmsManager"><a href="#SmsManager" class="headerlink" title="SmsManager"></a>SmsManager</h3><p>所属包： <em>android.telephony.SmsManager</em><br>获取方式：直接通过SmsManager类的静态方法获取。</p>
-<pre><code>mSmsManager = SmsManager.getDefault();
-</code></pre><h2 id="发送语句"><a href="#发送语句" class="headerlink" title="发送语句"></a>发送语句</h2><pre><code>mSmsManager.sendTextMessage(&quot;+86&quot;+inputNumber.getText().toString(),null,smsContent,null,null);
-第一个参数是手机号，记得要+86代表中国大陆，第三个是短信内容，切记短信幅度不要超过短信的限制、
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/Redis密码设置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/11/Redis密码设置/" itemprop="url">Redis密码设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T12:08:38+08:00">
-                2019-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Redis的安装"><a href="#Redis的安装" class="headerlink" title="Redis的安装"></a>Redis的安装</h1><p>在Ubuntu下安装redis很轻松</p>
-<pre><code>apt-get install update
-apt-get install redis-server
-</code></pre><p>之后输入命令</p>
-<pre><code>redis-server
-redis-cli
-</code></pre><p>即可确认是否安装成功</p>
-<h2 id="Redis密码的设置"><a href="#Redis密码的设置" class="headerlink" title="Redis密码的设置"></a>Redis密码的设置</h2><p>进入redis命令行之后，输入    </p>
-<pre><code>config get requirepass
-</code></pre><p>可以看到密码是空</p>
-<pre><code>config set requirepass 密码
-</code></pre><p>即可设置密码</p>
-<h2 id="Redis的远程登录"><a href="#Redis的远程登录" class="headerlink" title="Redis的远程登录"></a>Redis的远程登录</h2><p>仅设置密码还无法远程登录redis，因为redis一开始是只允许在本机登陆的，需要在redis的config里进行相应的设置。</p>
-<ol>
-<li>注释掉Bind 127.0.0.1</li>
-<li>将protected-mode 设为no</li>
-<li>设置远程链接密码</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2026,7 +1969,7 @@ redis-cli
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2048,7 +1991,7 @@ redis-cli
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
