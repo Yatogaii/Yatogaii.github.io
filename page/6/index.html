@@ -263,6 +263,448 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/LeetCode-349/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/27/LeetCode-349/" itemprop="url">LeetCode-349</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T13:16:56+08:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定两个数组，编写一个函数来计算它们的交集。</p>
+<p>示例 1:</p>
+<p>输入: nums1 = [1,2,2,1], nums2 = [2,2]<br>输出: [2]<br>示例 2:</p>
+<p>输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]<br>输出: [9,4]<br>说明:</p>
+<p>输出结果中的每个元素一定是唯一的。<br>我们可以不考虑输出结果的顺序。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/intersection-of-two-arrays" target="_blank" rel="noopener">https://leetcode-cn.com/problems/intersection-of-two-arrays</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h1 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h1><h2 id="常规暴力解法："><a href="#常规暴力解法：" class="headerlink" title="常规暴力解法："></a>常规暴力解法：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mapping;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ress;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> &amp; each:nums1)&#123;</span><br><span class="line">            mapping[each] = <span class="literal">NULL</span>;           <span class="comment">//把nums1的数据全部存放到mapping里 </span></span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span>&amp; each : nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(mapping.count(each) != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(res.count(each)==<span class="number">0</span>)&#123;</span><br><span class="line">                    res[each] == <span class="literal">NULL</span>;</span><br><span class="line">                    ress.push_back(each);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> ress;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>执行用时 : 12 ms, 在Intersection of Two Arrays的C++提交中击败了96.75% 的用户<br>内存消耗 : 9.8 MB, 在Intersection of Two Arrays的C++提交中击败了7.54% 的用户</strong></p>
+<h2 id="排序双指针法"><a href="#排序双指针法" class="headerlink" title="排序双指针法:"></a>排序双指针法:</h2><h3 id="先讲一讲C-sort函数的用法"><a href="#先讲一讲C-sort函数的用法" class="headerlink" title="先讲一讲C++ sort函数的用法"></a>先讲一讲C++ sort函数的用法</h3><p>对vector排序</p>
+<pre><code>sort(nums1.begin(),nums1.end());
+</code></pre><p>对数组排序也是一样的用法，第一个参数为起始地址，第二个参数为最后一个元素的后一位的地址。</p>
+<p>因为sort实际上是不去第二个参数所表明的地址的值的，就和vector.end()所指向的也不是最后一个值而是最后一个值的后一个位置一样。</p>
+<h3 id="删除C-中vector的重复元素"><a href="#删除C-中vector的重复元素" class="headerlink" title="删除C++中vector的重复元素"></a>删除C++中vector的重复元素</h3><pre><code>res.erase(unique(res.begin(), res.end()), res.end());
+</code></pre><h3 id="排序双指针法-1"><a href="#排序双指针法-1" class="headerlink" title="排序双指针法"></a>排序双指针法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        sort(nums1.begin(),nums1.end());</span><br><span class="line">        sort(nums2.begin(),nums2.end());</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;i&lt;nums1.size() &amp;&amp; j&lt;nums2.size();)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i] == nums2[j])&#123;</span><br><span class="line">                res.push_back(nums1[i]);</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(nums1[i]&lt;nums2[j])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                j++;</span><br><span class="line">        &#125;</span><br><span class="line">       res.erase(unique(res.begin(), res.end()), res.end());</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>执行用时 : 8 ms, 在Intersection of Two Arrays的C++提交中击败了99.49% 的用户</strong></p>
+<p><strong>内存消耗 : 9.2 MB, 在Intersection of Two Arrays的C++提交中击败了65.37% 的用户</strong></p>
+<h2 id="LeetCode中大佬最牛逼的解法"><a href="#LeetCode中大佬最牛逼的解法" class="headerlink" title="LeetCode中大佬最牛逼的解法"></a>LeetCode中大佬最牛逼的解法</h2><pre><code>class Solution {
+public:
+    vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+        vector&lt;int&gt; res;
+        if(nums1.size() ==0 || nums2.size()==0)
+            return res;
+
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+
+        int lastNum = -1;
+        for(int i=0,j=0;i&lt;nums1.size() &amp;&amp; j&lt;nums2.size();){
+            if(nums1[i] == nums2[j]){
+                if(lastNum !=nums1[i]){
+                    res.push_back(nums1[i]);
+                    lastNum = nums1[i];
+                }                
+                i++;
+            }
+            else if(nums1[i]&lt;nums2[j]){
+                i++;
+            }
+            else{
+                j++;
+            }            
+        }
+        return res;
+    }
+};
+</code></pre><p><a href="\2019\05\27\LeetCode-350\index.html">该题的进阶</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-234/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/25/LeetCode-234/" itemprop="url">LeetCode-234</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-25T18:37:22+08:00">
+                2019-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="留坑"><a href="#留坑" class="headerlink" title="留坑"></a>留坑</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>##<br>不行的代码</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        int res = 0;
+        int flag = 0;
+        ListNode * list = head;
+        int tmm = 0;
+        while(list != nullptr){
+            if(flag == 0)
+                res = res*10+ list-&gt;val;
+            else{
+                tmm = res%10;
+                res /= 10;
+                if(tmm != list-&gt;val){
+                    return false;
+                }
+                if(res == 0){
+                    return true;
+                }
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp;flag == 0){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        return false;
+    }
+};
+会卡在 [-129,129] 处，因为该算法都是按照链表元素为个数算的。
+</code></pre><p>错误实例2：</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head-&gt;next == nullptr)
+            return true;
+        stack&lt;int&gt; stk;
+        int flag = 0;
+        ListNode * list = head;
+        while(list != nullptr){
+            //flag是0，表示还没遇到那个开始回文的地方。
+            if(flag == 0)
+                stk.push(list-&gt;val);
+            else{
+                if(stk.empty())
+                    return false;
+                int tmp = stk.top();
+                stk.pop();
+                if(tmp != list-&gt;val)
+                    return false;
+            }
+            if(flag == 0 &amp;&amp; list-&gt;next == nullptr)
+                return false;
+            if(flag == 0&amp;&amp; list-&gt;val == list-&gt;next-&gt;val){
+                flag =1 ;
+            }
+            list = list-&gt;next;
+        }
+        if(stk.empty())
+            return true;
+        return false;
+    }
+};
+会卡在[1,1,2,2,1,1]
+</code></pre><p>ok:</p>
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode * node = head;
+        stack&lt;int&gt; stk1;
+        while(node != nullptr){
+            stk1.push(node-&gt;val);
+            node = node-&gt;next;
+        }
+        node = head;
+        while(node != nullptr){
+            if(stk1.top() != node-&gt;val)
+                return false;
+            stk1.pop();
+            node = node-&gt;next;
+        }
+        if(stk1.empty())
+            return true;
+        return false;
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/LeetCode-206/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1348,7 +1790,7 @@ int messageThread() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
