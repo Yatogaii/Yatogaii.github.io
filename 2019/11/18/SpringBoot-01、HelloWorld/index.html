@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="记录程序员成长点滴">
+<meta name="description" content="一、Spring开发前准备1、Maven环境搭建Maven3.3版本以上都可以兼容   Spring Boot is compatible with Apache Maven 3.3 or above. If you do not already have Maven installed, you can follow the instructions at maven.apache.org.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot-01、HelloWorld">
 <meta property="og:url" content="http://yoursite.com/2019/11/18/SpringBoot-01、HelloWorld/index.html">
 <meta property="og:site_name" content="Yatogami&#39;s Blog">
-<meta property="og:description" content="记录程序员成长点滴">
+<meta property="og:description" content="一、Spring开发前准备1、Maven环境搭建Maven3.3版本以上都可以兼容   Spring Boot is compatible with Apache Maven 3.3 or above. If you do not already have Maven installed, you can follow the instructions at maven.apache.org.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-18T12:57:55.180Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/18/SpringBoot-01、HelloWorld/IDEA中Maven配置.png">
+<meta property="og:updated_time" content="2019-11-19T08:23:18.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot-01、HelloWorld">
-<meta name="twitter:description" content="记录程序员成长点滴">
+<meta name="twitter:description" content="一、Spring开发前准备1、Maven环境搭建Maven3.3版本以上都可以兼容   Spring Boot is compatible with Apache Maven 3.3 or above. If you do not already have Maven installed, you can follow the instructions at maven.apache.org.">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/18/SpringBoot-01、HelloWorld/IDEA中Maven配置.png">
 
 
 
@@ -303,6 +305,39 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,7 +365,58 @@
       
 
       
-        
+        <h1 id="一、Spring开发前准备"><a href="#一、Spring开发前准备" class="headerlink" title="一、Spring开发前准备"></a>一、Spring开发前准备</h1><h2 id="1、Maven环境搭建"><a href="#1、Maven环境搭建" class="headerlink" title="1、Maven环境搭建"></a>1、Maven环境搭建</h2><p>Maven3.3版本以上都可以兼容</p>
+<blockquote>
+<p> Spring Boot is compatible with Apache Maven 3.3 or above. If you do not already have Maven installed, you can follow the instructions at <a href="https://maven.apache.org/" target="_blank" rel="noopener">maven.apache.org</a>. </p>
+</blockquote>
+<h2 id="2、Java版本"><a href="#2、Java版本" class="headerlink" title="2、Java版本"></a>2、Java版本</h2><p>Java版本需求为jdk1.8及以上，现在已经兼容jdk13。</p>
+<blockquote>
+<p> Spring Boot can be used with “classic” Java development tools or installed as a command line tool. Either way, you need <a href="https://www.java.com/" target="_blank" rel="noopener">Java SDK v1.8</a> or higher. </p>
+</blockquote>
+<h2 id="3、开发工具"><a href="#3、开发工具" class="headerlink" title="3、开发工具"></a>3、开发工具</h2><p>开发工具使用IDEA 2018.3 旗舰版，在进行开发之前，需要设置一下IDEA里的Maven，默认为<code>Bundled</code>，是IDEA自带的，这里我们设置一下让IDE使用我们的Maven，并且Maven的配置文件设置一下阿里云的镜像，下载更快。具体配置如图:</p>
+<p><img src="/2019/11/18/SpringBoot-01、HelloWorld/IDEA中Maven配置.png" alt="IDEA中Maven配置"></p>
+<p>Maven中<code>Settings.xml</code>中部分代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- mirror</span></span><br><span class="line"><span class="comment">    | Specifies a repository mirror site to use instead of a given repository. The repository that</span></span><br><span class="line"><span class="comment">    | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span></span><br><span class="line"><span class="comment">    | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span></span><br><span class="line"><span class="comment">    |</span></span><br><span class="line"><span class="comment">   &lt;mirror&gt;</span></span><br><span class="line"><span class="comment">     &lt;id&gt;mirrorId&lt;/id&gt;</span></span><br><span class="line"><span class="comment">     &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span></span><br><span class="line"><span class="comment">     &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span></span><br><span class="line"><span class="comment">     &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span></span><br><span class="line"><span class="comment">   &lt;/mirror&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、SpringBoot的安装"><a href="#4、SpringBoot的安装" class="headerlink" title="4、SpringBoot的安装"></a>4、SpringBoot的安装</h2><p>在配置好上述环境之后即可进行Spring Boot项目的开发，SpringBoot不需要安装，只需要在Maven里面导入相关的依赖即可。</p>
+<p>官网中给出的典型的XML配置文件如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>myproject<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Inherit defaults from Spring Boot --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Override inherited settings --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">developers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">developer</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">developers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">licenses</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">license</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">licenses</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scm</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">scm</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Add typical dependencies for a web application --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Package as an executable jar --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中，对于自建Maven项目来说，只需要加入如下代码即可进行简单的HelloWorld项目。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Inherit defaults from Spring Boot --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Add typical dependencies for a web application --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="二、HelloWorld"><a href="#二、HelloWorld" class="headerlink" title="二、HelloWorld"></a>二、HelloWorld</h1><h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><p>首先通过IDEA建立一个空的Maven项目，建立项目之后只需要进行如下的三个步骤即可完成一个HelloWorld项目的开发。</p>
+<ol>
+<li>配置.pom文件，导入SpringBoot所需要的依赖。</li>
+<li>编写程序入口，用于启动HelloWorld的主应用。</li>
+<li>编写函数，用于处理服务器的请求。</li>
+</ol>
+<h2 id="1、POM文件的配置"><a href="#1、POM文件的配置" class="headerlink" title="1、POM文件的配置"></a>1、POM文件的配置</h2><p>在IDEA中加入下列代码，即可自动添加SpringBoot相关的依赖文件。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在添加完毕之后IDEA会提示是否开启自动导入，这里我们选择开启，便可以自动导入我们通过Maven添加的依赖包。</p>
+<h2 id="2-主程序编写"><a href="#2-主程序编写" class="headerlink" title="2.主程序编写"></a>2.主程序编写</h2><p>新建一个名为HelloWorldApplication的类，并且添加main函数</p>
+<blockquote>
+<p>类名无所谓，重要的是之后的注解</p>
+</blockquote>
+<p>主类的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yatogami;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@SpringBootApplication</span> 标注主程序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldMainApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Spring启动函数，主要还是以来SpringApplication</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(HelloWorldMainApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中需要注意的只有两个地方：</p>
+<ol>
+<li>主类的注解<strong>@SpringBootApplication</strong>，这个注解标识了该类为一个SpringBootApplication的<strong>主类</strong>，也就是启动器类。</li>
+<li>main函数中的启动语句<code>SpringApplication.run(HelloWorldMainApplication.class,args);</code>，这一句是调用SpringApplication的静态方法<code>run</code>，只需传入<strong>主类</strong>的<code>.class</code>以及可变参数即可。这一句的作用是使Spring应用启动我们所标注的主类。</li>
+</ol>
+<h2 id="3-响应函数的编写"><a href="#3-响应函数的编写" class="headerlink" title="3.响应函数的编写"></a>3.响应函数的编写</h2><p>响应函数的本体如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yatogami.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Controller</span> 控制器类，初步猜测是对应的MVC里的C，用来实现对浏览器访问的响应。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"\")</span></span><br><span class="line"><span class="string">    public String doHello()&#123;</span></span><br><span class="line"><span class="string">        return "</span>hello world!<span class="string">";</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这里重要的也只有<code>doHello()</code>上的两个注解，甚至<code>doHello</code>函数也可以在主程序里面，可以不新建一个Controller类。</p>
+<blockquote>
+<p>doHello函数的名称随意，只需要注解正确即可。</p>
+</blockquote>
+<p>注解的作用如下：</p>
+<ul>
+<li><strong>@ResponseBody</strong>：表明该方法是一个响应体，用来响应Http请求。</li>
+<li><strong>@RequestMapping(“/“)</strong>：设定该函数响应哪一个URL的请求，比如<code>\</code>代表<code>localhost:8080\</code>。</li>
+</ul>
+<h2 id="4-启动HelloWorld程序"><a href="#4-启动HelloWorld程序" class="headerlink" title="4.启动HelloWorld程序"></a>4.启动HelloWorld程序</h2><p>通过<code>main</code>方法来启动我们的SpringBoot主程序，启动成功后在控制台可以看到如下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2019-11-19 14:15:57.748  INFO 86692 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &apos;&apos;</span><br><span class="line">2019-11-19 14:15:57.753  INFO 86692 --- [           main] com.yatogami.HelloWorldMainApplication   : Started HelloWorldMainApplication in 2.28 seconds (JVM running for 4.069)</span><br><span class="line">2019-11-19 14:16:18.684  INFO 86692 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &apos;dispatcherServlet&apos;</span><br><span class="line">2019-11-19 14:16:18.685  INFO 86692 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &apos;dispatcherServlet&apos;</span><br><span class="line">2019-11-19 14:16:18.691  INFO 86692 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms</span><br></pre></td></tr></table></figure>
+<p>可以看到，Tomcat已经启动，并且监听8080端口，此时只要在浏览器内访问<code>localhost:8080\</code>即可看到我们HelloWorld程序的效果。</p>
+
       
     </div>
     
@@ -363,6 +449,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/19/每日复盘-2019-11-19/" rel="prev" title="每日复盘-2019/11/19">
+                每日复盘-2019/11/19 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -414,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -430,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -441,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -475,6 +574,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Spring开发前准备"><span class="nav-number">1.</span> <span class="nav-text">一、Spring开发前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Maven环境搭建"><span class="nav-number">1.1.</span> <span class="nav-text">1、Maven环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Java版本"><span class="nav-number">1.2.</span> <span class="nav-text">2、Java版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、开发工具"><span class="nav-number">1.3.</span> <span class="nav-text">3、开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、SpringBoot的安装"><span class="nav-number">1.4.</span> <span class="nav-text">4、SpringBoot的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、HelloWorld"><span class="nav-number">2.</span> <span class="nav-text">二、HelloWorld</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整体流程"><span class="nav-number">2.1.</span> <span class="nav-text">整体流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、POM文件的配置"><span class="nav-number">2.2.</span> <span class="nav-text">1、POM文件的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-主程序编写"><span class="nav-number">2.3.</span> <span class="nav-text">2.主程序编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-响应函数的编写"><span class="nav-number">2.4.</span> <span class="nav-text">3.响应函数的编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-启动HelloWorld程序"><span class="nav-number">2.5.</span> <span class="nav-text">4.启动HelloWorld程序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
