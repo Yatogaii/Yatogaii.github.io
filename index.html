@@ -263,6 +263,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/10/C-继承详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yatogami">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yatogami's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/10/C-继承详解/" itemprop="url">C++继承详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-10T17:17:49+08:00">
+                2019-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>毫无疑问，继承是所有面向对象语言里面必不可少的一部分，但是C++中的继承非常的晦涩，所以特此记录一下C++中继承的学习心得。</p>
+<h2 id="继承的基本方式"><a href="#继承的基本方式" class="headerlink" title="继承的基本方式"></a>继承的基本方式</h2><p>C++中，继承的基本方式如下</p>
+<p><code>class {类名} : {访问控制符} {父类}</code></p>
+<p>其中，访问控制符和类内的相同，共有三种：</p>
+<table>
+<thead>
+<tr>
+<th>控制符</th>
+<th>类内</th>
+<th>派生类</th>
+<th>类外</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>protect</td>
+<td>√</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>private</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<p>代码实现如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">secret</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"this is a secret"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Base() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Base"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~Base() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"delete Base"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">mes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"common message"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> :</span> <span class="keyword">private</span> Base&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sonSecret</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived Secret"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sonMes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"a SonMessage"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Derived() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived Creater"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~Derived() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"delete Derived"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Base* a = <span class="keyword">new</span> Base;</span><br><span class="line">	Derived* b = <span class="keyword">new</span> Derived;</span><br><span class="line">	<span class="comment">// a-&gt;secret();成员访问控制符为private，无法访问</span></span><br><span class="line">	a-&gt;mes();	</span><br><span class="line">	<span class="comment">// b-&gt;sonScret(); private,无法访问</span></span><br><span class="line">	<span class="comment">// b-&gt;secret(); 父类访问控制符为private，无法从类外访问</span></span><br><span class="line">	<span class="comment">// b-&gt;mes(); 父类访问控制符为private，无法从类外访问</span></span><br><span class="line">	<span class="keyword">delete</span> a;</span><br><span class="line">	<span class="keyword">delete</span> b;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<p><img src="/2019/12/10/C-继承详解/C-继承详解\继承基本实现.png" alt></p>
+<h3 id="继承的作用"><a href="#继承的作用" class="headerlink" title="继承的作用"></a>继承的作用</h3><h2 id="派生类构造函数中的学问"><a href="#派生类构造函数中的学问" class="headerlink" title="派生类构造函数中的学问"></a>派生类构造函数中的学问</h2><h3 id="基类访问控制符不能为private"><a href="#基类访问控制符不能为private" class="headerlink" title="基类访问控制符不能为private"></a>基类访问控制符不能为private</h3><p>在继承之前，我们需要知道<strong>如果一个类是作为基类存在的，那么它的构造函数一定不能是private的</strong>。</p>
+<p>如果派生类继承了一个构造函数为private的类，那么在编译时会报错”无法访问XXXX”，这里的XXXX指的是父类的构造函数。</p>
+<p>因为在派生类被创建的时候，在调用派生类本身的构造函数之前，它会先调用父类的构造函数，由上文我们可得到，<strong>private访问控制符所修饰的成员是无法被派生类访问的</strong>，这样就引发了这个错误。</p>
+<h3 id="”-“的妙用"><a href="#”-“的妙用" class="headerlink" title="”:“的妙用"></a>”:“的妙用</h3><p>“:”这个符号可以用在类的构造函数中，可以直接初始化指定的成员变量。</p>
+<p>举例:</p>
+<p><code>Base():A(a),B(b) { function body }</code></p>
+<p>在该例中，A和B为成员变量，会根据a和b的值来直接初始化自身。</p>
+<p>值得注意的是，被初始化目标（A或B），必须是该类的<strong>非静态成员</strong>或者是<strong>基类的构造函数</strong>。</p>
+<p>这也是调用父类有参构造函数的办法。</p>
+<h3 id="如何调用父类构造函数"><a href="#如何调用父类构造函数" class="headerlink" title="如何调用父类构造函数"></a>如何调用父类构造函数</h3><p>在《继承的基本方式》中我们了解到，在新建一个派生类的时候，会先调用父类的构造函数，<strong>之后才会调用这个类本身的构造函数</strong>。</p>
+<p>但是，通过这种方式自动调用的父类构造函数都是<strong>无参</strong>的，那么，如何调用含参数的父类构造函数呢？</p>
+<p>我们可以通过”:”来手动调用。</p>
+<p>将上述代码修改一下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">secret</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"this is a secret"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Base() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Base"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Base(<span class="keyword">int</span> a) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Create Base, within parameter"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~Base() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"delete Base"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">mes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"common message"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> :</span> <span class="keyword">private</span> Base&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sonSecret</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived Secret"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sonMes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"a SonMessage"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Derived() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived Creater"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Derived(<span class="keyword">int</span> a):Base::Base(a) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived Creater , within parameter"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~Derived() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"delete Derived"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Base* a = <span class="keyword">new</span> Base;</span><br><span class="line">	Derived* b = <span class="keyword">new</span> Derived;</span><br><span class="line">	<span class="comment">// a-&gt;secret();成员访问控制符为private，无法访问</span></span><br><span class="line">	a-&gt;mes();	</span><br><span class="line">	Derived * c = <span class="keyword">new</span> Derived(<span class="number">5</span>);</span><br><span class="line">	<span class="comment">// b-&gt;sonScret(); private,无法访问</span></span><br><span class="line">	<span class="comment">// b-&gt;secret(); 父类访问控制符为private，无法从类外访问</span></span><br><span class="line">	<span class="comment">// b-&gt;mes(); 父类访问控制符为private，无法从类外访问</span></span><br><span class="line">	<span class="keyword">delete</span> a;</span><br><span class="line">	<span class="keyword">delete</span> b;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
+<p><img src="/2019/12/10/C-继承详解/调用父类构造参数.png" alt></p>
+<p>关键部分代码:</p>
+<p><code>Derived(int a):Base::Base(a)</code></p>
+<p>在声明含参构造函数时，派生类构造函数<strong>手动调用</strong>了父类的含参构造函数，并且<strong>没有</strong>再自动调用一遍父类的无参构造函数。</p>
+<h3 id="调用父类构造函数的意义"><a href="#调用父类构造函数的意义" class="headerlink" title="调用父类构造函数的意义"></a>调用父类构造函数的意义</h3><p>假如<code>Base</code>类有A,B两个成员变量，那么派生类<code>Derived</code>类也具有这两个成员变量。</p>
+<p>但是如果A,B这两个成员变量在父类中是<code>private</code>的，那么派生类无法通过自己的构造函数来初始化A,B这两个变量，这就有可能引发意想不到的错误。</p>
+<p>因此，C++定义在调用派生类的构造函数时，会<strong>先</strong>自动调用父类的<strong>无参构造函数</strong>来进行简单的初始化。</p>
+<p>如果需要父类的有参构造函数怎么办？通过上文中说明的”:”即可。</p>
+<h2 id="Virtual"><a href="#Virtual" class="headerlink" title="Virtual"></a>Virtual</h2><h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><p>什么是虚函数？</p>
+<h3 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h3><h3 id="指向派生类的基类指针"><a href="#指向派生类的基类指针" class="headerlink" title="指向派生类的基类指针"></a>指向派生类的基类指针</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/每日复盘-2019-11-26/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1868,173 +2071,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/每日复盘-2019-11-11/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yatogami">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yatogami's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/11/每日复盘-2019-11-11/" itemprop="url">每日复盘-2019/11/11</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T21:52:45+08:00">
-                2019-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/复盘/" itemprop="url" rel="index">
-                    <span itemprop="name">复盘</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/复盘/每日复盘/" itemprop="url" rel="index">
-                    <span itemprop="name">每日复盘</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>万恶的双十一，今天效率奇低，但是好歹完成了单片机作业</p>
-<h2 id="近期计划"><a href="#近期计划" class="headerlink" title="近期计划"></a>近期计划</h2><ul>
-<li>FPGA课设</li>
-<li>学长论文(明天最后一天时间)</li>
-<li><p>英语口语</p>
-<h2 id="保护现场"><a href="#保护现场" class="headerlink" title="保护现场"></a>保护现场</h2><p>现在SVM找好了方法，就是预测残差，但是SVM的核函数选择有三种</p>
-</li>
-<li><p>linear：唯一可以正常出结果的</p>
-</li>
-<li>sigmoid： 全是0</li>
-<li>rbf：全是0</li>
-<li>poly：没有反应，程序卡死</li>
-</ul>
-<p>明天找一下解决办法。</p>
-<p>这个论文的事情绝对不能再拖了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2085,7 +2121,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
